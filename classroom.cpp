@@ -1,8 +1,9 @@
 #include <iostream>
 #include <math.h>
 
-# include <GL/glut.h>
-# include <GL/freeglut_ext.h>
+#include <GL/glut.h>
+#include <GL/freeglut_ext.h>
+#include "chair.h"
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
@@ -70,47 +71,95 @@ void renderScene(void) {
 	glVertex3f(10.0f, 0.0f, -10.0f);
 	glEnd();
 
-    // // Draw walls
-    // glColor3f(0.7f, 0.7f, 0.0f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-10.0f, 0.0f, -10.0f);
-	// glVertex3f(-10.0f, 10.0f, -10.0f);
-	// glVertex3f(10.0f, 10.0f, -10.0f);
-	// glVertex3f(10.0f, 0.0f, -10.0f);
-	// glEnd();
+    //wall
+    glColor3f(0.7f, 0.7f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-10.0f, 0.0f, -10.0f);
+	glVertex3f(-10.0f, 7.0f, -10.0f);
+	glVertex3f(10.0f, 7.0f, -10.0f);
+	glVertex3f(10.0f, 0.0f, -10.0f);
+	glEnd();
 
-    // glColor3f(0.7f, 0.7f, 0.0f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-10.0f, 0.0f, -10.0f);
-	// glVertex3f(-10.0f, 10.0f, -10.0f);
-	// glVertex3f(-10.0f, 10.0f, 10.0f);
-	// glVertex3f(-10.0f, 0.0f, 10.0f);
-	// glEnd();
+	//wall
+    glColor3f(0.7f, 0.7f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-10.0f, 0.0f, -10.0f);
+	glVertex3f(-10.0f, 7.0f, -10.0f);
+	glVertex3f(-10.0f, 7.0f, 10.0f);
+	glVertex3f(-10.0f, 0.0f, 10.0f);
+	glEnd();
 
-    // glColor3f(0.7f, 0.7f, 0.0f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-10.0f, 0.0f, -10.0f);
-	// glVertex3f(-10.0f, 10.0f, -10.0f);
-	// glVertex3f(10.0f, 10.0f, -10.0f);
-	// glVertex3f(10.0f, 0.0f, -10.0f);
-	// glEnd();
+	//wall with door
+    glColor3f(0.7f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-10.0f, 0.0f, 10.0f);
+	glVertex3f(-10.0f, 7.0f, 10.0f);
+	glVertex3f(-7.0f, 7.0f, 10.0f);
+	glVertex3f(-7.0f, 0.0f, 10.0f);
+	glEnd();
 
-    // glColor3f(0.7f, 0.7f, 0.0f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-10.0f, 0.0f, -10.0f);
-	// glVertex3f(-10.0f, 10.0f, -10.0f);
-	// glVertex3f(10.0f, 10.0f, -10.0f);
-	// glVertex3f(10.0f, 0.0f, -10.0f);
-	// glEnd();
+	glColor3f(0.7f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-4.0f, 0.0f, 10.0f);
+	glVertex3f(-4.0f, 7.0f, 10.0f);
+	glVertex3f(10.0f, 7.0f, 10.0f);
+	glVertex3f(10.0f, 0.0f, 10.0f);
+	glEnd();
 
-	// Draw 36 SnowMen
-	for (int i = -3; i < 3; i++)
-		for (int j = -3; j < 3; j++) {
+	glColor3f(0.7f, 0.0f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-7.0f, 7.0f, 10.0f);
+	glVertex3f(-7.0f, 5.0f, 10.0f);
+	glVertex3f(-4.0f, 5.0f, 10.0f);
+	glVertex3f(-4.0f, 7.0f, 10.0f);
+	glEnd();
+
+	//wall
+    glColor3f(0.7f, 0.7f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(10.0f, 0.0f, -10.0f);
+	glVertex3f(10.0f, 7.0f, -10.0f);
+	glVertex3f(10.0f, 7.0f, 10.0f);
+	glVertex3f(10.0f, 0.0f, 10.0f);
+	glEnd();
+
+	//ceiling
+	glColor3f(0.0f, 0.7f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-10.0f, 7.0f, -10.0f);
+	glVertex3f(10.0f, 7.0f, -10.0f);
+	glVertex3f(10.0f, 7.0f, 10.0f);
+	glVertex3f(-10.0f, 7.0f, 10.0f);
+	glEnd();
+
+	// // Draw 36 SnowMen
+	// for (int i = -3; i < 3; i++)
+	// 	for (int j = -3; j < 3; j++) {
+	// 		glPushMatrix();
+	// 		glTranslatef(i*10.0, 0, j * 10.0);
+	// 		drawSnowMan();
+	// 		glPopMatrix();
+	// 	}
+
+	// Draw prof's chair
+	Chair profChair;
+	glPushMatrix();
+	glTranslatef( 0.0f, 0.8f, -8.0f);
+	glScalef(0.25f, 0.25f, 0.25f);
+	profChair.drawChair();
+	glPopMatrix();
+
+	// Draw student chairs
+	Chair studentChair[4][4];
+	for (int i = -2; i < 3; i++){
+		for (int j = 0; j < 3; j++) {
 			glPushMatrix();
 			glTranslatef(i*10.0, 0, j * 10.0);
-			drawSnowMan();
+			glScalef(0.25f, 0.25f, 0.25f);
+			studentChair[i][j].drawChair();
 			glPopMatrix();
 		}
+	}
 
 	if(abs(mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
@@ -131,14 +180,12 @@ void processSpecialKeys(int key, int xx, int yy) {
 
 	switch (key) {
 	case GLUT_KEY_LEFT:
-		angle -= 0.01f;
-		lx = sin(angle);
-		lz = -cos(angle);
+		x += sin(angle - M_PI/2.0) * fraction;
+		z += -cos(angle - M_PI/2.0) * fraction;
 		break;
 	case GLUT_KEY_RIGHT:
-		angle += 0.01f;
-		lx = sin(angle);
-		lz = -cos(angle);
+		x += sin(M_PI/2.0 + angle) * fraction;
+		z += -cos(M_PI/2.0 + angle) * fraction;
 		break;
 	case GLUT_KEY_UP:
 		x += lx * fraction;
