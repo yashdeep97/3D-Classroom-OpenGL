@@ -58,9 +58,9 @@ void renderScene(void) {
 	// Reset transformations
 	glLoadIdentity();
 	// Set the camera
-	gluLookAt(x, 1.0f, z,
-		x + lx, 1.0f + ly, z + lz,
-		0.0f, 1.0f, 0.0f);
+	gluLookAt(x, 2.0f, z,
+		x + lx, 2.0f + ly, z + lz,
+		0.0f, 2.0f, 0.0f);
 
 	// Draw floor
 	glColor3f(0.7f, 0.7f, 0.7f);
@@ -94,24 +94,24 @@ void renderScene(void) {
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, 10.0f);
 	glVertex3f(-10.0f, 7.0f, 10.0f);
-	glVertex3f(-7.0f, 7.0f, 10.0f);
-	glVertex3f(-7.0f, 0.0f, 10.0f);
+	glVertex3f(-6.0f, 7.0f, 10.0f);
+	glVertex3f(-6.0f, 0.0f, 10.0f);
 	glEnd();
 
 	glColor3f(0.7f, 0.0f, 0.0f);
 	glBegin(GL_QUADS);
-	glVertex3f(-4.0f, 0.0f, 10.0f);
-	glVertex3f(-4.0f, 7.0f, 10.0f);
+	glVertex3f(-3.0f, 0.0f, 10.0f);
+	glVertex3f(-3.0f, 7.0f, 10.0f);
 	glVertex3f(10.0f, 7.0f, 10.0f);
 	glVertex3f(10.0f, 0.0f, 10.0f);
 	glEnd();
 
 	glColor3f(0.7f, 0.0f, 0.0f);
 	glBegin(GL_QUADS);
-	glVertex3f(-7.0f, 7.0f, 10.0f);
-	glVertex3f(-7.0f, 5.0f, 10.0f);
-	glVertex3f(-4.0f, 5.0f, 10.0f);
-	glVertex3f(-4.0f, 7.0f, 10.0f);
+	glVertex3f(-6.0f, 7.0f, 10.0f);
+	glVertex3f(-6.0f, 5.0f, 10.0f);
+	glVertex3f(-3.0f, 5.0f, 10.0f);
+	glVertex3f(-3.0f, 7.0f, 10.0f);
 	glEnd();
 
 	//wall
@@ -144,18 +144,20 @@ void renderScene(void) {
 	// Draw prof's chair
 	Chair profChair;
 	glPushMatrix();
-	glTranslatef( 0.0f, 0.8f, -8.0f);
+	glTranslatef( 6.0f, 0.8f, -9.0f);
 	glScalef(0.25f, 0.25f, 0.25f);
+	glRotatef(-30.0, 0.0, 1.0, 0.0);
 	profChair.drawChair();
 	glPopMatrix();
 
 	// Draw student chairs
 	Chair studentChair[4][4];
-	for (int i = -2; i < 3; i++){
-		for (int j = 0; j < 3; j++) {
+	for (int i = -3; i <= 3; i+=2){
+		for (int j = -3; j <= 3; j+=2) {
 			glPushMatrix();
-			glTranslatef(i*10.0, 0, j * 10.0);
+			glTranslatef(i*2.0, 0.8f, j * 2.0 + 1.7f);
 			glScalef(0.25f, 0.25f, 0.25f);
+			glRotatef(180.0, 0.0, 1.0, 0.0);
 			studentChair[i][j].drawChair();
 			glPopMatrix();
 		}
