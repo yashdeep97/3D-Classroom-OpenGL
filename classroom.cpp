@@ -73,7 +73,7 @@ void renderScene(void) {
 	glEnd();
 
     //wall
-    glColor3f(0.7f, 0.7f, 0.0f);
+    glColor3f(0.9294f, 0.9216f, 0.8353f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, -10.0f);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
@@ -82,7 +82,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall
-    glColor3f(0.7f, 0.7f, 0.0f);
+    glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, -10.0f);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
@@ -91,7 +91,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall with door
-    glColor3f(0.7f, 0.0f, 0.0f);
+    glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, 10.0f);
 	glVertex3f(-10.0f, 7.0f, 10.0f);
@@ -99,7 +99,7 @@ void renderScene(void) {
 	glVertex3f(-6.0f, 0.0f, 10.0f);
 	glEnd();
 
-	glColor3f(0.7f, 0.0f, 0.0f);
+	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-3.0f, 0.0f, 10.0f);
 	glVertex3f(-3.0f, 7.0f, 10.0f);
@@ -107,7 +107,7 @@ void renderScene(void) {
 	glVertex3f(10.0f, 0.0f, 10.0f);
 	glEnd();
 
-	glColor3f(0.7f, 0.0f, 0.0f);
+	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-6.0f, 7.0f, 10.0f);
 	glVertex3f(-6.0f, 5.0f, 10.0f);
@@ -116,7 +116,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall
-    glColor3f(0.7f, 0.7f, 0.0f);
+    glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(10.0f, 0.0f, -10.0f);
 	glVertex3f(10.0f, 7.0f, -10.0f);
@@ -125,7 +125,7 @@ void renderScene(void) {
 	glEnd();
 
 	//ceiling
-	glColor3f(0.0f, 0.7f, 0.0f);
+	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
 	glVertex3f(10.0f, 7.0f, -10.0f);
@@ -185,6 +185,23 @@ void renderScene(void) {
 			glPopMatrix();
 		}
 	}
+
+	// Draw blackboard
+	glColor3f(0.4f, 0.2f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(-6.0f, 2.0f, -9.99f);
+	glVertex3f(-6.0f, 5.5f, -9.99f);
+	glVertex3f(6.0f, 5.5f, -9.99f);
+	glVertex3f(6.0f, 2.0f, -9.99f);
+	glEnd();
+
+	glColor3f(0.149f, 0.149f, 0.149f);
+	glBegin(GL_QUADS);
+	glVertex3f(-5.8f, 2.2f, -9.98f);
+	glVertex3f(-5.8f, 5.3f, -9.98f);
+	glVertex3f(5.8f, 5.3f, -9.98f);
+	glVertex3f(5.8f, 2.2f, -9.98f);
+	glEnd();
 
 	if(abs(mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
@@ -281,6 +298,17 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
+void animate () {
+
+    /* update state variables */
+    // x += .001;
+    // y += .001;
+    // z -= .001;
+
+    /* refresh screen */
+    glutPostRedisplay();
+}
+
 int main(int argc, char **argv) {
 
 	// init GLUT and create window
@@ -293,7 +321,7 @@ int main(int argc, char **argv) {
 	// register callbacks
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
-	glutIdleFunc(renderScene);
+	glutIdleFunc(animate);
 	glutKeyboardFunc(processNormalKeys);
 	glutSpecialFunc(processSpecialKeys);
     glutPassiveMotionFunc(processMouseMovement);
