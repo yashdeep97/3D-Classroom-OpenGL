@@ -3,12 +3,11 @@
 
 
 class Table{
-	
-	public :
-		void drawCTable() {
 
+    public:
+		void drawTable() {
 
-			glTranslatef(0.0f, 0.0f, -14.0f);
+			// glTranslatef(0.0f, 0.0f, -14.0f);
 
 
 			glBegin(GL_QUADS);
@@ -195,7 +194,7 @@ class Table{
 
 			glEnd();
 		}
-}
+};
 
 
 
