@@ -6,6 +6,8 @@
 #include "chair.h"
 #include "table.h"
 #include "cupboard.h"
+#include "window.h"
+#include "snowman.h"
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
@@ -24,32 +26,16 @@ float halfWidth = (float)(WINDOW_WIDTH/2.0);
 float halfHeight = (float)(WINDOW_HEIGHT/2.0);
 float mouseX = 0.0f, mouseY = 0.0f;
 
-void drawSnowMan() {
+void interactWithSnowman(){
+	int l = 6; // see how many characters are in text string.
+	char str[] = "Hello!";
 
-	glColor3f(1.0f, 1.0f, 1.0f);
-
-	// Draw Body
-	glTranslatef(0.0f, 0.75f, 0.0f);
-	glutSolidSphere(0.75f, 20, 20);
-
-	// Draw Head
-	glTranslatef(0.0f, 1.0f, 0.0f);
-	glutSolidSphere(0.25f, 20, 20);
-
-	// Draw Eyes
-	glPushMatrix();
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glTranslatef(0.05f, 0.10f, 0.18f);
-	glutSolidSphere(0.05f, 10, 10);
-	glTranslatef(-0.1f, 0.0f, 0.0f);
-	glutSolidSphere(0.05f, 10, 10);
-	glPopMatrix();
-
-	// Draw Nose
-	glColor3f(1.0f, 0.5f, 0.5f);
-	glutSolidCone(0.08f, 0.5f, 10, 2);
+	glRasterPos3f(-9.7f, 2.0f, -3.0); // location to start printing text
+	for( int i=0; i < l; i++) // loop until i is greater then l
+	{
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str[i]); // Print a character on the screen
+	}
 }
-
 
 void renderScene(void) {
 
@@ -152,20 +138,11 @@ void renderScene(void) {
 	glVertex3f(-10.0f, 7.0f, 10.0f);
 	glEnd();
 
-	// // Draw 36 SnowMen
-	// for (int i = -3; i < 3; i++)
-	// 	for (int j = -3; j < 3; j++) {
-	// 		glPushMatrix();
-	// 		glTranslatef(i*10.0, 0, j * 10.0);
-	// 		drawSnowMan();
-	// 		glPopMatrix();
-	// 	}
-
 	// Draw prof's chair
 	Chair profChair;
 	glPushMatrix();
-	glTranslatef( 6.0f, 0.8f, -9.0f);
-	glScalef(0.25f, 0.25f, 0.25f);
+	glTranslatef( 6.0f, 1.0f, -9.0f);
+	glScalef(0.32f, 0.32f, 0.32f);
 	glRotatef(-30.0, 0.0, 1.0, 0.0);
 	profChair.drawChair();
 	glPopMatrix();
@@ -173,8 +150,8 @@ void renderScene(void) {
 	// Draw prof's table
 	Table profTable;
 	glPushMatrix();
-	glTranslatef( 6.0f, 1.2f, -7.8f);
-	glScalef(0.4f, 0.4f, 0.4f);
+	glTranslatef( 6.0f, 1.4f, -7.6f);
+	glScalef(0.5f, 0.5f, 0.5f);
 	glRotatef(-30.0, 0.0, 1.0, 0.0);
 	profTable.drawTable();
 	glPopMatrix();
@@ -184,7 +161,7 @@ void renderScene(void) {
 	for (int i = -3; i <= 3; i+=2){
 		for (int j = -3; j <= 3; j+=2) {
 			glPushMatrix();
-			glTranslatef(i*2.0, 0.8f, j * 2.0 + 1.7f);
+			glTranslatef(i*2.0, 0.8f, j * 2.0 + 2.2f);
 			glScalef(0.25f, 0.25f, 0.25f);
 			glRotatef(180.0, 0.0, 1.0, 0.0);
 			studentChair[i][j].drawChair();
@@ -197,7 +174,7 @@ void renderScene(void) {
 	for (int i = -3; i <= 3; i+=2){
 		for (int j = -3; j <= 3; j+=2) {
 			glPushMatrix();
-			glTranslatef(i*2.0 + 0.3f, 1.2f, j * 2.0 + 0.7f);
+			glTranslatef(i*2.0 + 0.3f, 1.2f, j * 2.0 + 1.2f);
 			glScalef(0.4f, 0.4f, 0.4f);
 			// glRotatef(180.0, 0.0, 1.0, 0.0);
 			studentTable[i][j].drawTable();
@@ -247,6 +224,29 @@ void renderScene(void) {
 		glVertex3f(10.0f, 0.001f, -10.01f + i);
 		glEnd();
 	}
+
+	//windows
+	Window w;
+	w.drawWindow1();
+	w.drawWindow2();
+	w.drawWindowSill();
+	glPushMatrix();
+	glTranslatef( 0.0f, 0.0f, 8.0f);
+	w.drawWindowSill();
+	glPopMatrix();
+
+	//Draw Snowmen
+	Snowman s;
+	glPushMatrix();
+	glTranslatef(-9.7f, 2.0f, -3.0);
+	glScalef(0.3f, 0.3f, 0.3f);
+	s.drawSnowMan();
+	glPopMatrix();
+
+	
+	// if (/* condition */) {
+	// 	interactWithSnowman();
+	// }
 	
 	if(abs(mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
@@ -254,7 +254,9 @@ void renderScene(void) {
 		lz = -cos(angle);
 	}
 	if(abs(mouseY) > 0.3){
-		yAngle += (0.002f * mouseY);
+		if(abs(yAngle) < (M_PI/2)){
+			yAngle += (0.002f * mouseY);
+		}
 		ly = sin(yAngle);
 	}
 
