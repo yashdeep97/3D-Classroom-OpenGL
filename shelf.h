@@ -1,15 +1,13 @@
-#ifndef CUBBOARD_H
-#define CUBBOARD_H
+#ifndef SHELF_H
+#define SHELF_H
 
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
 
-class Shelve{
+class Shelf{
 
     public:
 		void drawSnowMan() {
-
-
 
 			// Draw Body
 			glTranslatef(0.0f, 0.75f, 0.0f);
@@ -129,7 +127,7 @@ class Shelve{
 			glPopMatrix();
 		}
 
-		void drawShelve() {
+		void drawShelf() {
 			drawCubBoard();
 
 			glPushMatrix();
@@ -140,7 +138,7 @@ class Shelve{
 
 			glPushMatrix();
 			glColor3f(1.0f, 1.0f, 1.0f);
-			glTranslatef(-2, 0, 0);
+			glTranslatef(-2, 0, -0.5);
 			drawSnowMan();
 			glPopMatrix();
 
@@ -152,12 +150,12 @@ class Shelve{
 
 			glPushMatrix();
 			glColor3f(1.0f, 1.0f, 0.0f);
-			glTranslatef(-1, 0, -4);
+			glTranslatef(-1, 0, -3);
 			drawSnowMan();
 			glPopMatrix();
 
 			glPushMatrix();
-			glTranslatef(2.5, -3, 0);
+			glTranslatef(2.5, -3, -1.2);
 			glRotatef(-90, 0, 1, 0);
 			drawHouse();
 			glPopMatrix();

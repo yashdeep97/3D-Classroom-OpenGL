@@ -1,0 +1,110 @@
+*{
+    line-height: 1.8em;
+    font-family: Helvetica, Futura, sans-serif;
+}
+
+/*Side Nav*/
+.sidenav {
+    width: 20%;
+    height: 100%; /* 100% Full-height */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 30px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 0px 0px;
+    padding-left: 20%;
+    text-decoration: none;
+    font-size: 23px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav ul li a {
+    padding: 0px 0px 0px 0px;
+    padding-left: 20%;
+    text-decoration: none;
+    font-size: 21px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+
+#main {
+    margin-left: 20%;
+    padding: 20px;
+}
+
+h1{
+    width: 95%;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    color: #444;
+}
+
+h2{
+    width: 95%;
+    padding: 10px;
+    color: #222;
+}
+
+p{
+    padding-left: 10px;
+    font-size: 1.2em;
+    width: 90%;
+}
+
+li{
+    font-size: 1.2em;
+    width: 80%;
+}
+code{
+    font-size: 1.2em;
+}
+.imageContainer{
+    width: 100%;
+    text-align: center;
+}
+
+img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*for phones*/
+@media screen and (max-width: 1200px) {
+    .sidenav{
+        width: 30%;
+    }
+    #main {
+        margin-left: 30%;
+        padding: 20px;
+    }
+}
+
+.doneBy{
+    color: #818181;
+}
+
+.pos-bottom{
+    position: absolute;
+    bottom: 100px;
+    margin-left: 20px;
+}
+
+.thumbnail{
+    height: 300px;
+    width: 300px;
+}

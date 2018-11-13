@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <string.h>
 
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
@@ -8,6 +9,8 @@
 #include "cupboard.h"
 #include "window.h"
 #include "snowman.h"
+#include "fan.h"
+#include "shelf.h"
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
@@ -26,15 +29,23 @@ float halfWidth = (float)(WINDOW_WIDTH/2.0);
 float halfHeight = (float)(WINDOW_HEIGHT/2.0);
 float mouseX = 0.0f, mouseY = 0.0f;
 
-void interactWithSnowman(){
-	int l = 6; // see how many characters are in text string.
-	char str[] = "Hello!";
+//Fan
+Fan f;
 
-	glRasterPos3f(-9.7f, 2.0f, -3.0); // location to start printing text
-	for( int i=0; i < l; i++) // loop until i is greater then l
+void interactWithSnowman(){
+	
+	char str1[] = "Hello! You seem to be the only student in class today.";
+	int l1 = strlen(str1); // see how many characters are in text string.
+	glPushMatrix();
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	glRasterPos3f(-9.6f, 2.7f, -2.8); // location to start printing text
+	for( int i=0; i < l1; i++) // loop until i is greater then l
 	{
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str[i]); // Print a character on the screen
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str1[i]); // Print a character on the screen
 	}
+	glPopMatrix();
 }
 
 void renderScene(void) {
@@ -242,11 +253,25 @@ void renderScene(void) {
 	glScalef(0.3f, 0.3f, 0.3f);
 	s.drawSnowMan();
 	glPopMatrix();
+	
+	if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
+		interactWithSnowman();
+	}
 
 	
-	// if (/* condition */) {
-	// 	interactWithSnowman();
-	// }
+	glPushMatrix();
+	glTranslatef(0.0f, 6.0f, 0.0);
+	glScalef(0.3f, 0.3f, 0.3f);
+	f.drawFan();
+	glPopMatrix();
+
+	Shelf sh;
+	glPushMatrix();
+	glTranslatef(8.99f, 3.5f, 4.0);
+	glScalef(0.25f, 0.25f, 0.25f);
+	glRotatef(-90, 0.0f, 1.0f, 0.0f);
+	sh.drawShelf();
+	glPopMatrix();
 	
 	if(abs(mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
@@ -347,10 +372,7 @@ void changeSize(int w, int h) {
 
 void animate () {
 
-    /* update state variables */
-    // x += .001;
-    // y += .001;
-    // z -= .001;
+    f.rotateFan();
 
     /* refresh screen */
     glutPostRedisplay();

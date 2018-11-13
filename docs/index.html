@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.min.css">
+	<link rel="stylesheet" type="text/css" href="./code.css">
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<script type="text/javascript" src="highlight.pack.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.fancybox.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body data-spy="scroll" data-target=".sidenav" data-offset="60">
+
+<div id="mySidenav" class="sidenav">
+<!-- <h1>Contents</h1> -->
+<a href="#FractalImages">Fractal Images</a>
+  <a href="#Headerfiles">Header Files</a>
+  <ul>
+<li><a href="#basics">basics.h</a></li>
+<li><a href="#turtle">turtle.h</a></li>
+</ul>
+  <a href="#Fractals">Fractals</a>
+  <ul>
+<li><a href="#Recursion">Recursion</a></li>
+<li><a href="#Lsystems">L-Systems</a></li>
+</ul>
+  <div class="pos-bottom doneBy">
+    <h3 class="doneBy">Done By:</h2>
+    <ul>
+      <li>Yashdeep Thorat 2015B5A70675H</li>
+	  <li>Yash Gupta 2015AAPS0270H</li>
+	  <li>Aditi Sharma 2015B4A70649H</li>
+    </ul>
+  </div>
+</div>
+
+<div id="main">
+  <h1 id="FractalImages">Fractal Images:</h1>
+  <a href="images/basics.png" data-fancybox="gallery" data-caption="basics">
+  <img class="thumbnail" src="images/basics.png" alt="" />
+  </a>
+  <a href="images/Board.png" data-fancybox="gallery" data-caption="Board">
+  <img class="thumbnail" src="images/Board.png" alt="" />
+  </a>
+  <a href="images/CircleRecursion.png" data-fancybox="gallery" data-caption="CircleRecursion">
+  <img class="thumbnail" src="images/CircleRecursion.png" alt="" />
+  </a>
+  <a href="images/Crystal.png" data-fancybox="gallery" data-caption="Crystal">
+  <img class="thumbnail" src="images/Crystal.png" alt="" />
+  </a>
+  <a href="images/DragonCurve.png" data-fancybox="gallery" data-caption="DragonCurve">
+  <img class="thumbnail" src="images/DragonCurve.png" alt="" />
+  </a>
+  <a href="images/HexFractal.png" data-fancybox="gallery" data-caption="HexFractal">
+  <img class="thumbnail" src="images/HexFractal.png" alt="" />
+  </a>
+  <a href="images/KochSnowflake.png" data-fancybox="gallery" data-caption="KochSnowflake">
+  <img class="thumbnail" src="images/KochSnowflake.png" alt="" />
+  </a>
+  <a href="images/Pentaplexity.png" data-fancybox="gallery" data-caption="Pentaplexity">
+  <img class="thumbnail" src="images/Pentaplexity.png" alt="" />
+  </a>
+  <a href="images/Rings.png" data-fancybox="gallery" data-caption="Rings">
+  <img class="thumbnail" src="images/Rings.png" alt="" />
+  </a>
+  <a href="images/Shrub.png" data-fancybox="gallery" data-caption="Shrub">
+  <img class="thumbnail" src="images/Shrub.png" alt="" />
+  </a>
+  <a href="images/SierpinskiTriangle.png" data-fancybox="gallery" data-caption="SierpinskiTriangle">
+  <img class="thumbnail" src="images/SierpinskiTriangle.png" alt="" />
+  </a>
+  <a href="images/Tree.png" data-fancybox="gallery" data-caption="Tree">
+  <img class="thumbnail" src="images/Tree.png" alt="" />
+  </a>
+
+  <h1 id="Headerfiles">Header Files</h1>
+  <h2 id="basics">basics.h</h2>
+	<p>
+		This header file contains a class with all the code necessary to draw the basic elements
+		like points, lines and circles with the given inputs. It also includes the header file <b>glfw3</b>.
+		<pre>
+		  <code>
+			class Basics{
+				private:
+					GLfloat r = 1.0, g = 1.0, b = 1.0;  //default value for the color variables
+					GLdouble w = 1.0;  // default value
+				public:
+					// Set color of the elements to be drawn next
+					// @param red : red intensity
+					// @param green : green intensity
+					// @param blue : blue intensity
+					void setColor(GLfloat red, GLfloat green, GLfloat blue){}
+
+					// Set line width of the elements to be drawn next
+					// @param width : point size
+					void setWidth(GLdouble width){}
+
+					// Plot a point on the window created using methods from the graphics library
+					// @param x : x coordinate
+					// @param y : y coordinate
+					void drawPoint(int x, int y){}
+
+					// Draw a line using Bresenham's midpoint algorithm
+					// @param x1 : x coordinate of starting point
+					// @param y1 : y coordinate of starting point
+					// @param x2 : x coordinate of last point
+					// @param y2 : y coordinate of last point
+					void drawLine(int x1, int y1, int x2, int y2){}
+
+					// Draw a circle using midpoint algorithm
+					// @param xc : x coordinate of center
+					// @param yc : y coordinate of center
+					// @param radius : radius of circle
+					void drawCircle(int xc , int yc , int radius){}
+			};
+		  </code>
+		</pre>
+	</p>
+  <h2 id="turtle">turtle.h</h2>
+  <p>
+  	This header file contains a class which has methods for implementing turtle graphics
+	.
+  	<pre>
+  	  <code>
+		struct position{
+			int x; 		// x coordinate of turtle
+			int y; 		// y coordinate of turtle
+			int a; 		// angle of turtle with x axis
+		};
+
+		class Turtle{
+			private:
+				stack <position> saved;		// stack for saving position of turtle (for branching)
+				int currentX, currentY;		// current x and y coordinate of turtle
+				int angle;					// current angle of the turtle
+				Basics basics;				// object of Basics class
+			public:
+				// Set position of turtle to start drawing
+				// @param x : x coordinate of starting point
+				// @param y : y coordinate of starting point
+				// @param a : angle to begin drawing with
+				void setPosition(int x, int y, int a){}
+
+				// move turtle forward (with the predefined angle) and draw its path
+				// @param l : length to move forward
+				void forward(int l){}
+
+				// Turn turtle right by given angle
+				// @param a : angle
+				void turnRight(int a){}
+
+				// Turn turtle left by given angle
+				// @param a : angle
+				void turnLeft(int a){}
+
+				// Push current position of turtle into stack
+				void pushState(){}
+
+				// Pop from stackand set current position to it
+				void popState(){}
+
+				// Change color of path being drawn
+				// @param r : red intensity
+				// @param g : green intensity
+				// @param b : blue intensity
+				void changeColor(GLfloat r, GLfloat g, GLfloat b){}
+
+				// Set width of path to be drawn
+				// @param w : width
+				void changeWidth(GLdouble w){}
+
+				// Draw circle of radius r
+				// @param r : radius
+				void makeCircle(int r){}
+		};
+  	  </code>
+  	</pre>
+  </p>
+
+  <h1 id="Fractals">Fractals</h1>
+  <h2 id="Recursion">Using Recursion</h2>
+	<p>
+		Fractals can be created using a recursive function since most fractals contain
+		a repeating graphic element.<br>
+		<b>CircleRecursion.cpp</b> creates a fractal using this approach.
+		<pre>
+			<code>
+				// Recursive function for drawing fractal using circles
+				// @param x : x coordinate of center of circle
+				// @param y : y coordinate of center of circle
+				// @param d : diameter
+				void drawPattern(int x, int y, int d){
+					basics.drawCircle(x,y,d/2);
+					if(d>10){
+						drawPattern(x+d/2, y, d/2);
+						drawPattern(x-d/2, y, d/2);
+						drawPattern(x, y+d/2, d/2);
+						drawPattern(x, y-d/2, d/2);
+					}
+				}
+			</code>
+		</pre>
+	</p>
+  <h2 id="Lsystems">Using L-Systems</h2>
+  <p>
+	  Another way of creating fractals is using L-Systems.<br>
+	  Each L-System consists of an axiom, constants, variables and production rules.<br>
+	  For example, the L-System used for creating the Dragon Curve:
+	  <pre>
+			Variables: 	F,  H
+			Constants:	 +,  -,  [,  ]
+			Axiom:	 F
+			Production Rules: 	F -> F+H,	 H -> F-H
+	  </pre>
+	  <p>Where <i>F</i> and <i>H</i> tell the turtle to move forward, '+' tells it to
+	  turn right by 90<sup>0</sup> and '-' tells it to turn left by 90<sup>0</sup>.<br>
+	  We start with <i>F</i> as the initial string, and for each generation, we replace
+	  <i>F</i> and <i>H</i> according to the production rules. When we draw the path
+	  of the turtle, we get the fractal for the given generation.</p>
+	  <p>All other fractals have been created using this approach.</p>
+	  <pre>
+		<code>
+			// Function for generating the path string for the next generation using the current path string
+			// @param str : currnt path string
+			void nextGeneration(string& str){
+				int i = 0;
+				string newstr = "";
+				while(i < str.length()){
+					if(str[i] == 'F'){
+						newstr += "F+H";
+					}else if(str[i] == 'H'){
+						newstr += "F-H";
+					} else {
+						newstr += str[i];
+					}
+					i++;
+				}
+				str = newstr;
+			}
+		  </code>
+	  </pre>
+  </p>
+
+	<p>
+		The main function contains the code required to create a Window, set coordinate system
+		and render graphics using the methods from glfw3 and graphics library.
+	</p>
+</div>
+
+</body>
+</html>
