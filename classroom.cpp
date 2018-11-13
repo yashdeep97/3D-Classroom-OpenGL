@@ -5,6 +5,7 @@
 #include <GL/freeglut_ext.h>
 #include "chair.h"
 #include "table.h"
+#include "cupboard.h"
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
@@ -204,6 +205,14 @@ void renderScene(void) {
 		}
 	}
 
+	// Draw cupboard
+	Cupboard cupboard;
+	glPushMatrix();
+	glTranslatef( 8.49f, 0.0f, -3.5f);
+	glRotatef(-90.0, 0.0, 1.0, 0.0);
+	cupboard.drawCupboard();
+	glPopMatrix();
+
 	// Draw blackboard
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glBegin(GL_QUADS);
@@ -221,6 +230,24 @@ void renderScene(void) {
 	glVertex3f(5.8f, 2.2f, -9.98f);
 	glEnd();
 
+	//Floor pattern
+	glColor3f(0.149f, 0.149f, 0.149f);
+	glLineWidth(3.0f);
+	for(int i = 0; i < 20; i += 2)
+	{
+		glBegin(GL_LINES);
+		glVertex3f(-10.0f + i, 0.001f, -10.01f);
+		glVertex3f(-10.0f + i, 0.001f, 10.01f);
+		glEnd();
+	}
+	for(int i = 0; i < 20; i += 2)
+	{
+		glBegin(GL_LINES);
+		glVertex3f(-10.0f, 0.001f, -10.01f + i);
+		glVertex3f(10.0f, 0.001f, -10.01f + i);
+		glEnd();
+	}
+	
 	if(abs(mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
 		lx = sin(angle);
