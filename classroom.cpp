@@ -59,9 +59,9 @@ void renderScene(void) {
 	// Reset transformations
 	glLoadIdentity();
 	// Set the camera
-	gluLookAt(x, 2.0f, z,
-		x + lx, 2.0f + ly, z + lz,
-		0.0f, 2.0f, 0.0f);
+	gluLookAt(x, 2.5f, z,
+		x + lx, 2.5f + ly, z + lz,
+		0.0f, 2.5f, 0.0f);
 
 	// Draw floor
 	glColor3f(0.7f, 0.7f, 0.7f);
@@ -114,6 +114,24 @@ void renderScene(void) {
 	glVertex3f(-3.0f, 5.0f, 10.0f);
 	glVertex3f(-3.0f, 7.0f, 10.0f);
 	glEnd();
+
+	glColor3f(0.4f, 0.2f, 0.0f);
+	glLineWidth(30.0f);
+	glBegin(GL_LINES);
+    glVertex3f(-6.0f, 5.0f, 10.01f);
+	glVertex3f(-3.0f, 5.0f, 10.01f);
+	glEnd();
+
+	glBegin(GL_LINES);
+    glVertex3f(-6.0f, 5.0f, 10.01f);
+	glVertex3f(-6.0f, 0.0f, 10.01f);
+	glEnd();
+
+	glBegin(GL_LINES);
+    glVertex3f(-3.0f, 0.0f, 10.01f);
+	glVertex3f(-3.0f, 5.0f, 10.01f);
+	glEnd();
+
 
 	//wall
     glColor3f(1.0f, 0.851f, 0.702f);
