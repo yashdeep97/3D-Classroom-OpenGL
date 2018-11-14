@@ -15,6 +15,8 @@
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
 
+#define M_PI 3.1454
+
 using namespace std;
 
 // angle of rotation for the camera direction
