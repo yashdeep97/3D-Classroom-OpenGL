@@ -78,134 +78,1629 @@
   </a>
 
   <h1 id="Headerfiles">Header Files</h1>
-  <h2 id="basics">basics.h</h2>
+
+  <h2 id="chair">chair.h</h2>
 	<p>
-		This header file contains a class with all the code necessary to draw the basic elements
-		like points, lines and circles with the given inputs. It also includes the header file <b>glfw3</b>.
+		This header file contains a class with the method necessary to draw a <b>chair object </b>.
 		<pre>
 		  <code>
-			class Basics{
-				private:
-					GLfloat r = 1.0, g = 1.0, b = 1.0;  //default value for the color variables
-					GLdouble w = 1.0;  // default value
-				public:
-					// Set color of the elements to be drawn next
-					// @param red : red intensity
-					// @param green : green intensity
-					// @param blue : blue intensity
-					void setColor(GLfloat red, GLfloat green, GLfloat blue){}
+			#ifndef CHAIR_H
+			#define CHAIR_H
 
-					// Set line width of the elements to be drawn next
-					// @param width : point size
-					void setWidth(GLdouble width){}
+			#include <GL/glut.h>
+			#include <GL/freeglut_ext.h>
 
-					// Plot a point on the window created using methods from the graphics library
-					// @param x : x coordinate
-					// @param y : y coordinate
-					void drawPoint(int x, int y){}
+			class Chair{
 
-					// Draw a line using Bresenham's midpoint algorithm
-					// @param x1 : x coordinate of starting point
-					// @param y1 : y coordinate of starting point
-					// @param x2 : x coordinate of last point
-					// @param y2 : y coordinate of last point
-					void drawLine(int x1, int y1, int x2, int y2){}
+			    public:
+					void drawChair() {
 
-					// Draw a circle using midpoint algorithm
-					// @param xc : x coordinate of center
-					// @param yc : y coordinate of center
-					// @param radius : radius of circle
-					void drawCircle(int xc , int yc , int radius){}
+						// glTranslatef(0.0f, 0.0f, -14.0f);
+
+						//glRotatef(10, 1.0f, 0.0f, 0.0f);
+						//glRotatef(-10, 0.0f, 0.0f, 1.0f);
+						//glRotatef(_angle, 0.0f, 1.0f, 0.0f);
+						//glRotatef(10, 1.0f, 0.0f, 0.0f);
+						//glRotatef(-10, 0.0f, 0.0f, 1.0f);
+						//glRotatef(_angle, 0.0f, 1.0f, 0.0f);
+						glColor3f(1.0f, 1.0f, 0.0f);
+						glBegin(GL_QUADS);
+
+						//Front
+						//
+						glVertex3f(-2.0f, -0.2f, 2.0f);
+						glVertex3f(2.0f, -0.2f, 2.0f);
+						glVertex3f(2.0f, 0.2f, 2.0f);
+						glVertex3f(-2.0f, 0.2f, 2.0f);
+
+						//Right
+						//
+						glVertex3f(2.0f, -0.2f, -2.0f);
+						glVertex3f(2.0f, 0.2f, -2.0f);
+						glVertex3f(2.0f, 0.2f, 2.0f);
+						glVertex3f(2.0f, -0.2f, 2.0f);
+
+						//Back
+						//;
+						glVertex3f(-2.0f, -0.2f, -2.0f);
+						glVertex3f(-2.0f, 0.2f, -2.0f);
+						glVertex3f(2.0f, 0.2f, -2.0f);
+						glVertex3f(2.0f, -0.2f, -2.0f);
+
+						//Left
+						;
+						glVertex3f(-2.0f, -0.2f, -2.0f);
+						glVertex3f(-2.0f, -0.2f, 2.0f);
+						glVertex3f(-2.0f, 0.2f, 2.0f);
+						glVertex3f(-2.0f, 0.2f, -2.0f);
+
+						//top
+						//
+
+						glVertex3f(2.0f, 0.2f, 2.0f);
+						glVertex3f(-2.0f, 0.2f, 2.0f);
+						glVertex3f(-2.0f, 0.2f, -2.0f);
+						glVertex3f(2.0f, 0.2f, -2.0f);
+
+						//bottom
+						;
+
+						glVertex3f(2.0f, -0.2f, 2.0f);
+						glVertex3f(-2.0f, -0.2f, 2.0f);
+						glVertex3f(-2.0f, -0.2f, -2.0f);
+						glVertex3f(2.0f, -0.2f, -2.0f);
+
+						//table front leg
+						//front
+						//
+
+						glVertex3f(1.8f, -0.2f, 1.6f);
+						glVertex3f(1.4f, -0.2f, 1.6f);
+						glVertex3f(1.4f, -3.0f, 1.6f);
+						glVertex3f(1.8f, -3.0f, 1.6f);
+
+						//back
+						//;
+
+						glVertex3f(1.8f, -0.2f, 1.2f);
+						glVertex3f(1.4f, -0.2f, 1.2f);
+						glVertex3f(1.4f, -3.0f, 1.2f);
+						glVertex3f(1.8f, -3.0f, 1.2f);
+
+						//right
+						//
+
+						glVertex3f(1.8f, -0.2f, 1.6f);
+						glVertex3f(1.8f, -0.2f, 1.2f);
+						glVertex3f(1.8f, -3.0f, 1.2f);
+						glVertex3f(1.8f, -3.0f, 1.6f);
+
+						//left
+						//;
+
+						glVertex3f(1.4f, -0.2f, 1.6f);
+						glVertex3f(1.4f, -0.2f, 1.2f);
+						glVertex3f(1.4f, -3.0f, 1.2f);
+						glVertex3f(1.4f, -3.0f, 1.6f);
+
+						//back leg back
+						//front
+						//;
+
+						glVertex3f(1.8f, -0.2f, -1.2f);
+						glVertex3f(1.4f, -0.2f, -1.2f);
+						glVertex3f(1.4f, -3.0f, -1.2f);
+						glVertex3f(1.8f, -3.0f, -1.2f);
+
+						//back
+						//;
+
+						glVertex3f(1.8f, -0.2f, -1.6f);
+						glVertex3f(1.4f, -0.2f, -1.6f);
+						glVertex3f(1.4f, -3.0f, -1.6f);
+						glVertex3f(1.8f, -3.0f, -1.6f);
+
+						//right
+						//
+
+						glVertex3f(1.8f, -0.2f, -1.6f);
+						glVertex3f(1.8f, -0.2f, -1.2f);
+						glVertex3f(1.8f, -3.0f, -1.2f);
+						glVertex3f(1.8f, -3.0f, -1.6f);
+
+						//left
+						//
+
+						glVertex3f(1.4f, -0.2f, -1.6f);
+						glVertex3f(1.4f, -0.2f, -1.2f);
+						glVertex3f(1.4f, -3.0f, -1.2f);
+						glVertex3f(1.4f, -3.0f, -1.6f);
+
+						//leg left front
+						//
+
+						glVertex3f(-1.8f, -0.2f, 1.6f);
+						glVertex3f(-1.4f, -0.2f, 1.6f);
+						glVertex3f(-1.4f, -3.0f, 1.6f);
+						glVertex3f(-1.8f, -3.0f, 1.6f);
+
+						//back
+						//;
+
+						glVertex3f(-1.8f, -0.2f, 1.2f);
+						glVertex3f(-1.4f, -0.2f, 1.2f);
+						glVertex3f(-1.4f, -3.0f, 1.2f);
+						glVertex3f(-1.8f, -3.0f, 1.2f);
+
+						//right
+
+
+						glVertex3f(-1.8f, -0.2f, 1.6f);
+						glVertex3f(-1.8f, -0.2f, 1.2f);
+						glVertex3f(-1.8f, -3.0f, 1.2f);
+						glVertex3f(-1.8f, -3.0f, 1.6f);
+
+						//left
+						;
+
+						glVertex3f(-1.4f, -0.2f, 1.6f);
+						glVertex3f(-1.4f, -0.2f, 1.2f);
+						glVertex3f(-1.4f, -3.0f, 1.2f);
+						glVertex3f(-1.4f, -3.0f, 1.6f);
+
+						//left leg back front
+
+						//front
+						;
+
+						glVertex3f(-1.8f, -0.2f, -1.2f);
+						glVertex3f(-1.4f, -0.2f, -1.2f);
+						glVertex3f(-1.4f, -3.0f, -1.2f);
+						glVertex3f(-1.8f, -3.0f, -1.2f);
+
+						//back
+						;
+
+						glVertex3f(-1.8f, -0.2f, -1.6f);
+						glVertex3f(-1.4f, -0.2f, -1.6f);
+						glVertex3f(-1.4f, -3.0f, -1.6f);
+						glVertex3f(-1.8f, -3.0f, -1.6f);
+
+						//right
+
+
+						glVertex3f(-1.8f, -0.2f, -1.6f);
+						glVertex3f(-1.8f, -0.2f, -1.2f);
+						glVertex3f(-1.8f, -3.0f, -1.2f);
+						glVertex3f(-1.8f, -3.0f, -1.6f);
+
+						//left
+
+
+						glVertex3f(-1.4f, -0.2f, -1.6f);
+						glVertex3f(-1.4f, -0.2f, -1.2f);
+						glVertex3f(-1.4f, -3.0f, -1.2f);
+						glVertex3f(-1.4f, -3.0f, -1.6f);
+
+						//chair back
+						//front
+
+
+
+
+
+						//;
+						//chair upper part 
+						glColor3f(0, 0, 1);
+						glVertex3f(-1.8f, 1.2f, -1.8f);
+						glVertex3f(1.8f, 1.2f, -1.8f);
+						glVertex3f(1.8f, 3.5f, -1.8f);
+						glVertex3f(-1.8f, 3.5f, -1.8f);
+
+						glVertex3f(-1.8f, 1.2f, -0.6f);
+						glVertex3f(1.8f, 1.2f, -0.6f);
+						glVertex3f(1.8f, 3.5f, -0.6f);
+						glVertex3f(-1.8f, 3.5f, -0.6f);
+
+						//chair upper side
+						glColor3f(0, 1, 0);
+						glVertex3f(-1.8f, 1.2f, -1.80f);
+						glVertex3f(-1.8f, 1.2f, -0.6f);
+						glVertex3f(-1.8f, 3.5f, -0.6f);
+						glVertex3f(-1.8f, 3.5f, -1.8f);
+
+						glVertex3f(1.8f, 1.2f, -1.80f);
+						glVertex3f(1.8f, 1.2f, -0.6f);
+						glVertex3f(1.8f, 3.5f, -0.6f);
+						glVertex3f(1.8f, 3.5f, -1.8f);
+
+						//chiar upper top 
+						glColor3f(0, 1, 0);
+						glVertex3f(-1.8f, 3.5f, -1.80f);
+						glVertex3f(-1.8f, 3.5f, -0.6f);
+						glVertex3f(1.8f, 3.5f, -0.6f);
+						glVertex3f(1.8f, 3.5f, -1.8f);
+
+						glVertex3f(-1.8f, 1.2f, -1.80f);
+						glVertex3f(-1.8f, 1.2f, -0.6f);
+						glVertex3f(1.8f, 1.2f, -0.6f);
+						glVertex3f(1.8f, 1.2f, -1.8f);
+
+						// chair top legs 
+
+						glColor3f(1, 0, 0);
+						//side walls
+						glVertex3f(-1.2f, 1.2f, -1.20f);
+						glVertex3f(-1.2f, 1.2f, -0.6f);
+						glVertex3f(-1.2f, .2f, -0.6f);
+						glVertex3f(-1.2f, .2f, -1.2f);
+
+						glVertex3f(-.8f, 1.2f, -1.20f);
+						glVertex3f(-.8f, 1.2f, -0.6f);
+						glVertex3f(-.8f, .2f, -0.6f);
+						glVertex3f(-.8f, .2f, -1.2f);
+
+						//froont walls adnd back walls
+						glVertex3f(-1.2f, 1.2f, -1.2f);
+						glVertex3f(-0.8f, 1.2f, -1.2f);
+						glVertex3f(-0.8f, .2f, -1.2f);
+						glVertex3f(-1.2f, .2f, -1.2f);
+
+						glVertex3f(-1.2f, 1.2f, -0.6f);
+						glVertex3f(-0.8f, 1.2f, -0.6f);
+						glVertex3f(-0.8f, .2f, -0.6f);
+						glVertex3f(-1.2f, .2f, -0.6f);
+
+						//side walls
+						glVertex3f(1.2f, 1.2f, -1.20f);
+						glVertex3f(1.2f, 1.2f, -0.6f);
+						glVertex3f(1.2f, .2f, -0.6f);
+						glVertex3f(1.2f, .2f, -1.2f);
+
+						glVertex3f(.8f, 1.2f, -1.20f);
+						glVertex3f(.8f, 1.2f, -0.6f);
+						glVertex3f(.8f, .2f, -0.6f);
+						glVertex3f(.8f, .2f, -1.2f);
+
+						//froont walls adnd back walls
+						glColor3f(1, 1, 0);
+						glVertex3f(1.2f, 1.2f, -1.2f);
+						glVertex3f(0.8f, 1.2f, -1.2f);
+						glVertex3f(0.8f, .2f, -1.2f);
+						glVertex3f(1.2f, .2f, -1.2f);
+
+						glVertex3f(1.2f, 1.2f, -0.6f);
+						glVertex3f(0.8f, 1.2f, -0.6f);
+						glVertex3f(0.8f, .2f, -0.6f);
+						glVertex3f(1.2f, .2f, -0.6f);
+
+						//glVertex3f()
+
+						glEnd();
+
+					}
+
 			};
+
+			#endif
+
 		  </code>
 		</pre>
 	</p>
-  <h2 id="turtle">turtle.h</h2>
+  <h2 id="cupboard">cupboard.h</h2>
   <p>
-  	This header file contains a class which has methods for implementing turtle graphics
+  	This header file contains a class with the method necessary to draw a <b>Cupboard object </b>.
 	.
   	<pre>
   	  <code>
-		struct position{
-			int x; 		// x coordinate of turtle
-			int y; 		// y coordinate of turtle
-			int a; 		// angle of turtle with x axis
+ 		#ifndef CUPBOARD_H
+		#define CUPBOARD_H
+
+		#include <GL/glut.h>
+		#include <GL/freeglut_ext.h>
+
+		class Cupboard{
+
+		    public:
+				void drawCupboard() {
+
+					glColor3f(0.302f, 0.0f, 0.302f);
+					glBegin(GL_QUADS);
+
+		            // Back
+					glVertex3f(-1.5f, 0.5f, -1.5f);
+					glVertex3f(-1.5f, 4.5f, -1.5f);
+					glVertex3f(1.5, 4.5f, -1.5f);
+					glVertex3f(1.5f, 0.5f, -1.5f);
+
+		            // Left Side
+		            glVertex3f(-1.5f, 0.5f, -1.5f);
+					glVertex3f(-1.5f, 4.5f, -1.5f);
+					glVertex3f(-1.5, 4.5f, 0.5f);
+					glVertex3f(-1.5f, 0.5f, 0.5f);
+
+		            // Right Side
+		            glVertex3f(1.5f, 0.5f, -1.5f);
+					glVertex3f(1.5f, 4.5f, -1.5f);
+					glVertex3f(1.5, 4.5f, 0.5f);
+					glVertex3f(1.5f, 0.5f, 0.5f);
+
+		            // Front
+		            glVertex3f(-1.5f, 0.5f, 0.5f);
+					glVertex3f(-1.5f, 4.5f, 0.5f);
+					glVertex3f(1.5, 4.5f, 0.5f);
+					glVertex3f(1.5f, 0.5f, 0.5f);
+
+		            glColor3f(0.2f, 0.0f, 0.2f);
+		            // Left Support
+					glVertex3f(-1.5f, 0.0f, -1.5f);
+					glVertex3f(-1.5f, 0.5f, -1.5f);
+					glVertex3f(-1.2, 0.5f, -1.5f);
+					glVertex3f(-1.2f, 0.0f, -1.5f);
+
+		            glVertex3f(-1.5f, 0.0f, -1.5f);
+					glVertex3f(-1.5f, 0.5f, -1.5f);
+					glVertex3f(-1.5, 0.5f, 0.5f);
+					glVertex3f(-1.5f, 0.0f, 0.5f);
+
+		            glVertex3f(-1.2f, 0.0f, -1.5f);
+					glVertex3f(-1.2f, 0.5f, -1.5f);
+					glVertex3f(-1.2, 0.5f, 0.5f);
+					glVertex3f(-1.2f, 0.0f, 0.5f);
+
+		            glVertex3f(-1.5f, 0.0f, 0.5f);
+					glVertex3f(-1.5f, 0.5f, 0.5f);
+					glVertex3f(-1.2, 0.5f, 0.5f);
+					glVertex3f(-1.2f, 0.0f, 0.5f);
+
+		            // Right Support
+					glVertex3f(1.5f, 0.0f, -1.5f);
+					glVertex3f(1.5f, 0.5f, -1.5f);
+					glVertex3f(1.2f, 0.5f, -1.5f);
+					glVertex3f(1.2f, 0.0f, -1.5f);
+
+		            glVertex3f(1.5f, 0.0f, -1.5f);
+					glVertex3f(1.5f, 0.5f, -1.5f);
+					glVertex3f(1.5f, 0.5f, 0.5f);
+					glVertex3f(1.5f, 0.0f, 0.5f);
+
+		            glVertex3f(1.2f, 0.0f, -1.5f);
+					glVertex3f(1.2f, 0.5f, -1.5f);
+					glVertex3f(1.2f, 0.5f, 0.5f);
+					glVertex3f(1.2f, 0.0f, 0.5f);
+
+		            glVertex3f(1.5f, 0.0f, 0.5f);
+					glVertex3f(1.5f, 0.5f, 0.5f);
+					glVertex3f(1.2f, 0.5f, 0.5f);
+					glVertex3f(1.2f, 0.0f, 0.5f);
+
+		            glEnd();
+
+		            //lines
+		            glColor3f(0.149f, 0.149f, 0.149f);
+		            glLineWidth(5.0f);
+		            glBegin(GL_LINES);
+
+		            glVertex3f(-1.4f, 0.6f, 0.501f);
+					glVertex3f(-1.4f, 4.4f, 0.501f);
+
+					glVertex3f(-1.4f, 4.4f, 0.501f);
+					glVertex3f(1.4f, 4.4f, 0.501f);
+
+		            glVertex3f(1.4f, 0.6f, 0.501f);
+					glVertex3f(1.4f, 4.4f, 0.501f);
+
+		            glVertex3f(-1.4f, 0.6f, 0.501f);
+					glVertex3f(1.4f, 0.6f, 0.501f);
+
+		            //middle line
+		            glVertex3f(0.0f, 0.6f, 0.501f);
+					glVertex3f(0.0f, 4.4f, 0.501f);
+
+		            glEnd();
+
+		            // Handles
+		            glColor3f(0.5f, 0.5f, 0.5f);
+		            glPushMatrix();
+		            glTranslatef( 0.1f, 2.5f, 0.5f);
+		            glRotatef(90.0, 0.0, 1.0, 0.0);
+		            glutSolidTorus(0.03f, 0.1f, 100, 100);
+		            glPopMatrix();
+
+		            glPushMatrix();
+		            glTranslatef( -0.1f, 2.5f, 0.5f);
+		            glRotatef(90.0, 0.0, 1.0, 0.0);
+		            glutSolidTorus(0.03f, 0.1f, 100, 100);
+		            glPopMatrix();
+				}
+
 		};
 
-		class Turtle{
-			private:
-				stack <position> saved;		// stack for saving position of turtle (for branching)
-				int currentX, currentY;		// current x and y coordinate of turtle
-				int angle;					// current angle of the turtle
-				Basics basics;				// object of Basics class
-			public:
-				// Set position of turtle to start drawing
-				// @param x : x coordinate of starting point
-				// @param y : y coordinate of starting point
-				// @param a : angle to begin drawing with
-				void setPosition(int x, int y, int a){}
-
-				// move turtle forward (with the predefined angle) and draw its path
-				// @param l : length to move forward
-				void forward(int l){}
-
-				// Turn turtle right by given angle
-				// @param a : angle
-				void turnRight(int a){}
-
-				// Turn turtle left by given angle
-				// @param a : angle
-				void turnLeft(int a){}
-
-				// Push current position of turtle into stack
-				void pushState(){}
-
-				// Pop from stackand set current position to it
-				void popState(){}
-
-				// Change color of path being drawn
-				// @param r : red intensity
-				// @param g : green intensity
-				// @param b : blue intensity
-				void changeColor(GLfloat r, GLfloat g, GLfloat b){}
-
-				// Set width of path to be drawn
-				// @param w : width
-				void changeWidth(GLdouble w){}
-
-				// Draw circle of radius r
-				// @param r : radius
-				void makeCircle(int r){}
-		};
+		#endif
   	  </code>
   	</pre>
   </p>
 
-  <h1 id="Fractals">Fractals</h1>
-  <h2 id="Recursion">Using Recursion</h2>
-	<p>
-		Fractals can be created using a recursive function since most fractals contain
-		a repeating graphic element.<br>
-		<b>CircleRecursion.cpp</b> creates a fractal using this approach.
-		<pre>
-			<code>
-				// Recursive function for drawing fractal using circles
-				// @param x : x coordinate of center of circle
-				// @param y : y coordinate of center of circle
-				// @param d : diameter
-				void drawPattern(int x, int y, int d){
-					basics.drawCircle(x,y,d/2);
-					if(d>10){
-						drawPattern(x+d/2, y, d/2);
-						drawPattern(x-d/2, y, d/2);
-						drawPattern(x, y+d/2, d/2);
-						drawPattern(x, y-d/2, d/2);
+  <h2 id="fan">fan.h</h2>
+  <p>
+  	This header file contains a class with the method necessary to draw a <b>Fan object </b>.
+	.
+  	<pre>
+  	  <code>
+ 		#ifndef FAN_H
+		#define FAN_H
+
+		#include <GL/glut.h>
+		#include <GL/freeglut_ext.h>
+		#include <math.h>
+
+		#define DEF_D 5
+
+		class Fan {
+			private:
+				float rotationAngle = 0.0f;
+
+			public:
+				
+				void drawFan()
+				{
+					glTranslatef(0, 5, -5.0);
+					glScalef(5, 5, 5);
+					//glRotatef(90, 1, 0, 0);
+					//Cube
+					glPushMatrix();
+					glColor3f(1, 1, 1);
+					glScalef(1, 1.2, 1);
+					glScalef(.5, .4, .5);
+					glTranslatef(0, -2.0, 0);
+					glScalef(1.0f, 0.7f, 1.0f);
+					glTranslatef(0, -0.5, 0);
+					glutSolidCube(1);
+					glPopMatrix();
+
+					glPushMatrix();
+					glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f);
+
+					glPushMatrix();
+					glTranslatef(0, -1.05, 0);
+					glScalef(0.15, .15, .15);
+					glTranslatef(0.0f, -2.2f, 0.0f);
+					glBegin(GL_QUAD_STRIP);
+					for (int j = 0; j <= 360; j += DEF_D) {
+						glColor3f(0.302, 0.149, 0.0);
+						glVertex3f(cos(j), +1, sin(j));
+						glColor3f(0.6, 0.302, 0.0);
+						glVertex3f(cos(j), -1, sin(j));
 					}
+					glEnd();
+					glPopMatrix();
+
+					glPushMatrix();
+					glColor3f(.3, .3, .3);
+					glRotatef(90, 1, 0, 0);
+					glTranslatef(0, 0, 1.55);
+					glScalef(.25, .25, .25);
+					glutSolidTorus(.1, .72, 25, 25);
+					glPopMatrix();
+
+					glPushMatrix();
+
+					glPushMatrix();
+					glColor3f(0.0, 0.0, 0.4);
+					glTranslatef(-1, -1.55, 0);
+					glScalef(2.5, .1, .75);
+					glutSolidCube(.5);
+					glPopMatrix();
+
+					glPushMatrix();
+					glTranslatef(0, -1.55, 0);
+					glScalef(0.05, .11, .05);
+					glRotatef(90, 1, 0, 0);
+					glRotatef(90, 0, 1, 0);
+					glTranslatef(0, 0, -5);
+					glScalef(1, 1, 2.4);
+					glBegin(GL_QUAD_STRIP);
+					for (int j = 0; j <= 360; j += DEF_D) {
+						glColor3f(.3, .3, .3);
+						glVertex3f(cos(j), +1, sin(j));
+						glColor3f(.7, .7, .7);
+						glVertex3f(cos(j), -1, sin(j));
+					}
+					glEnd();
+					glPopMatrix();
+
+					glPopMatrix();
+
+					glPushMatrix();
+					glRotatef(90, 0, 1, 0);
+					glPushMatrix();
+					glColor3f(0.0, 0.0, 0.4);
+					glTranslatef(-1, -1.55, 0);
+					glScalef(2.5, .1, .75);
+					glutSolidCube(.5);
+					glPopMatrix();
+
+					glPushMatrix();
+					glTranslatef(0, -1.55, 0);
+					glScalef(0.05, .11, .05);
+					glRotatef(90, 1, 0, 0);
+					glRotatef(90, 0, 1, 0);
+					glTranslatef(0, 0, -5);
+					glScalef(1, 1, 2.4);
+					glBegin(GL_QUAD_STRIP);
+					for (int j = 0; j <= 360; j += DEF_D) {
+						glColor3f(.3, .3, .3);
+						glVertex3f(cos(j), +1, sin(j));
+						glColor3f(.7, .7, .7);
+						glVertex3f(cos(j), -1, sin(j));
+					}
+					glEnd();
+					glPopMatrix();
+
+					glPopMatrix();
+
+					glPushMatrix();
+					glRotatef(180, 0, 1, 0);
+
+					glPushMatrix();
+					glColor3f(0.0, 0.0, 0.4);
+					glTranslatef(-1, -1.55, 0);
+					glScalef(2.5, .1, .75);
+					glutSolidCube(.5);
+					glPopMatrix();
+
+					glPushMatrix();
+					glTranslatef(0, -1.55, 0);
+					glScalef(0.05, .11, .05);
+					glRotatef(90, 1, 0, 0);
+					glRotatef(90, 0, 1, 0);
+					glTranslatef(0, 0, -5);
+					glScalef(1, 1, 2.4);
+					glBegin(GL_QUAD_STRIP);
+					for (int j = 0; j <= 360; j += DEF_D) {
+						glColor3f(.3, .3, .3);
+						glVertex3f(cos(j), +1, sin(j));
+						glColor3f(.7, .7, .7);
+						glVertex3f(cos(j), -1, sin(j));
+					}
+					glEnd();
+					glPopMatrix();
+
+					glPopMatrix();
+
+					glPushMatrix();
+					glRotatef(270, 0, 1, 0);
+					glPushMatrix();
+					glColor3f(0.0, 0.0, 0.4);
+					glTranslatef(-1, -1.55, 0);
+					glScalef(2.5, .1, .75);
+					glutSolidCube(.5);
+					glPopMatrix();
+
+					glPushMatrix();
+					glTranslatef(0, -1.55, 0);
+					glScalef(0.05, .11, .05);
+					glRotatef(90, 1, 0, 0);
+					glRotatef(90, 0, 1, 0);
+					glTranslatef(0, 0, -5);
+					glScalef(1, 1, 2.4);
+					glBegin(GL_QUAD_STRIP);
+					for (int j = 0; j <= 360; j += DEF_D) {
+						glColor3f(.3, .3, .3);
+						glVertex3f(cos(j), +1, sin(j));
+						glColor3f(.7, .7, .7);
+						glVertex3f(cos(j), -1, sin(j));
+					}
+					glEnd();
+					glPopMatrix();
+
+					glPopMatrix();
+
+					glPopMatrix();
 				}
-			</code>
-		</pre>
+
+				void rotateFan(){
+					rotationAngle += 1.5f;
+				}
+
+		};
+
+		#endif
+
+  	  </code>
+  	</pre>
+  </p>
+
+  <h2 id="snowmen">snowmen.h</h2>
+  <p>
+  	This header file contains a class with the method necessary to draw a <b>snowmen object </b>.
+	.
+  	<pre>
+  	  <code>
+ 		#ifndef SNOWMAN_H
+		#define SNOWMAN_H
+
+		#include <GL/glut.h>
+		#include <GL/freeglut_ext.h>
+
+		class Snowman{
+
+		    public:
+		    
+		        void drawSnowMan() {
+
+		            glColor3f(1.0f, 1.0f, 1.0f);
+
+		            // Draw Body
+		            glTranslatef(0.0f, 0.75f, 0.0f);
+		            glutSolidSphere(0.75f, 20, 20);
+
+		            // Draw Head
+		            glTranslatef(0.0f, 1.0f, 0.0f);
+		            glutSolidSphere(0.25f, 20, 20);
+
+		            // Draw Eyes
+		            glPushMatrix();
+		            glColor3f(0.0f, 0.0f, 0.0f);
+		            glTranslatef(0.05f, 0.10f, 0.18f);
+		            glutSolidSphere(0.05f, 10, 10);
+		            glTranslatef(-0.1f, 0.0f, 0.0f);
+		            glutSolidSphere(0.05f, 10, 10);
+		            glPopMatrix();
+
+		            // Draw Nose
+		            glColor3f(1.0f, 0.5f, 0.5f);
+		            glutSolidCone(0.08f, 0.5f, 10, 2);
+		        }
+
+		};
+
+		#endif
+		 
+
+  	  </code>
+  	</pre>
+  </p>
+
+  <h2 id="shelf">shelf.h</h2>
+  <p>
+  	This header file contains a class with the method necessary to draw a <b>shelf object </b>.
+	.
+  	<pre>
+  	  <code>
+ 		#ifndef SHELF_H
+		#define SHELF_H
+
+		#include <GL/glut.h>
+		#include <GL/freeglut_ext.h>
+
+		class Shelf{
+
+		    public:
+				void drawSnowMan() {
+
+					// Draw Body
+					glTranslatef(0.0f, 0.75f, 0.0f);
+					glutSolidSphere(0.75f, 20, 20);
+
+					// Draw Head
+					glTranslatef(0.0f, 1.0f, 0.0f);
+					glutSolidSphere(0.25f, 20, 20);
+
+					// Draw Eyes
+					glPushMatrix();
+					glColor3f(0.0f, 0.0f, 0.0f);
+					glTranslatef(0.05f, 0.10f, 0.18f);
+					glutSolidSphere(0.05f, 10, 10);
+					glTranslatef(-0.1f, 0.0f, 0.0f);
+					glutSolidSphere(0.05f, 10, 10);
+					glPopMatrix();
+
+					// Draw Nose
+					glColor3f(1.0f, 0.5f, 0.5f);
+					glutSolidCone(0.08f, 0.5f, 10, 2);
+				}
+
+				void drawHouse() {
+
+					// house
+					glPushMatrix();
+					glutSolidCube(2);                 // building
+
+					glTranslatef(0, 1, 0);
+					glPushMatrix();                   // roof
+					glRotatef(-90, 1, 0, 0);
+					glutSolidCone(1.5, 1, 16, 8);
+					glPopMatrix();
+
+					glTranslatef(.75, .5, -.75);
+					glPushMatrix();                   // chimney
+					glScalef(1, 3, 1);
+					glutSolidCube(.25);
+					glPopMatrix();
+					glPopMatrix();
+
+					glTranslatef(0, -.65, 2);
+
+					// car
+					glColor3f(1.0f, 0.0f, 00.0f);
+					glPushMatrix();
+					glPushMatrix();                   // body
+					glScalef(2, .5, 1);
+					glutSolidCube(.5);
+					glPopMatrix();
+					glTranslatef(0, 0, .25);
+					glPushMatrix();
+					glTranslatef(-.4, -.2, 0);
+					glutSolidTorus(.05, .1, 8, 8);       // wheel
+					glTranslatef(.8, 0, 0);
+					glutSolidTorus(.05, .1, 8, 8);       // wheel
+					glPopMatrix();
+					glTranslatef(0, 0, -.5);
+					glPushMatrix();
+					glTranslatef(-.4, -.2, 0);
+					glutSolidTorus(.05, .1, 8, 8);       // wheel
+					glTranslatef(.8, 0, 0);
+					glutSolidTorus(.05, .1, 8, 8);       // wheel
+					glPopMatrix();
+					glPopMatrix();
+
+					glPopMatrix();
+				}
+
+				void drawCubBoard()
+				{
+					//glTranslatef(0, 0, -14);
+					glPushMatrix();
+
+					glBegin(GL_QUADS);
+
+
+					glColor3f(0, 0, 1);
+					glVertex3f(-4.0f, 0.0f, -4.0f);
+					glVertex3f(0.0f, 0.0f, -4.0f);
+
+					glVertex3f(0.0f, 4.0f, -4.0f);
+					glVertex3f(-4.0f, 4.0f, -4.0f);
+
+					//glVertex3f(-1.8f, 1.2f, -0.6f);
+					//glVertex3f(1.8f, 1.2f, -0.6f);
+					//glVertex3f(1.8f, 3.5f, -0.6f);
+					//glVertex3f(-1.8f, 3.5f, -0.6f);
+
+					//chair upper side
+					glColor3f(0, 1, 0);
+					glVertex3f(-4.0f, 0.0f, -4.0f);
+					glVertex3f(-4.0f, 0.0f, -0.0f);
+					glVertex3f(-4.0f, 4.0f, -0.0f);
+					glVertex3f(-4.0f, 4.0f, -4.0f);
+
+					glVertex3f(0.0f, 0.0f, -4.00f);
+					glVertex3f(0.0f, 0.0f, -0.0f);
+					glVertex3f(0.0f, 4.0f, -0.0f);
+					glVertex3f(0.0f, 4.0f, -4.0f);
+
+					//chiar upper top 
+					glColor3f(0, 1, 0);
+					glVertex3f(-4.0f, 4.0f, -4.00f);
+					glVertex3f(-4.0f, 4.0f, -0.0f);
+					glVertex3f(0.0f, 4.0f, -0.0f);
+					glVertex3f(0.0f, 4.0f, -4.0f);
+
+					glVertex3f(-4.0f, 0.0f, -4.00f);
+					glVertex3f(-4.0f, 0.0f, -0.0f);
+					glVertex3f(0.0f, 0.0f, -0.0f);
+					glVertex3f(0.0f, 0.0f, -4.0f);
+
+					glEnd();
+
+					glPopMatrix();
+				}
+
+				void drawShelf() {
+					drawCubBoard();
+
+					glPushMatrix();
+
+					glTranslatef(4, -4, 0);
+					drawCubBoard();
+					glPopMatrix();
+
+					glPushMatrix();
+					glColor3f(1.0f, 1.0f, 1.0f);
+					glTranslatef(-2, 0, -0.5);
+					drawSnowMan();
+					glPopMatrix();
+
+					glPushMatrix();
+					glColor3f(1.0f, 0.0f, 0.0f);
+					glTranslatef(-3, 0, -3);
+					drawSnowMan();
+					glPopMatrix();
+
+					glPushMatrix();
+					glColor3f(1.0f, 1.0f, 0.0f);
+					glTranslatef(-1, 0, -3);
+					drawSnowMan();
+					glPopMatrix();
+
+					glPushMatrix();
+					glTranslatef(2.5, -3, -1.2);
+					glRotatef(-90, 0, 1, 0);
+					drawHouse();
+					glPopMatrix();
+				}
+
+
+		};
+
+		#endif
+
+  	  </code>
+  	</pre>
+  </p>
+
+  <h2 id="table">table.h</h2>
+  <p>
+  	This header file contains a class with the method necessary to draw a <b>table object </b>.
+	.
+  	<pre>
+  	  <code>
+ 		#ifndef TABLE_H
+		#define TABLE_H
+
+
+		class Table{
+
+		    public:
+				void drawTable() {
+
+					// glTranslatef(0.0f, 0.0f, -14.0f);
+
+
+					glBegin(GL_QUADS);
+
+					//Front
+					//
+					glColor3f(.6,.2,0);
+					glVertex3f(-4.0f, -0.2f, 2.0f);
+					glVertex3f(2.0f, -0.2f, 2.0f);
+					glVertex3f(2.0f, 0.2f, 2.0f);
+					glVertex3f(-4.0f, 0.2f, 2.0f);
+
+					//Back
+					//;
+					glVertex3f(-4.0f, -0.2f, -2.0f);
+					glVertex3f(-4.0f, 0.2f, -2.0f);
+					glVertex3f(2.0f, 0.2f, -2.0f);
+					glVertex3f(2.0f, -0.2f, -2.0f);
+
+					//Right
+					//
+					glVertex3f(2.0f, -0.2f, -2.0f);
+					glVertex3f(2.0f, 0.2f, -2.0f);
+					glVertex3f(2.0f, 0.2f, 2.0f);
+					glVertex3f(2.0f, -0.2f, 2.0f);
+
+
+					//Left
+					;
+					glVertex3f(-4.0f, -0.2f, -2.0f);
+					glVertex3f(-4.0f, -0.2f, 2.0f);
+					glVertex3f(-4.0f, 0.2f, 2.0f);
+					glVertex3f(-4.0f, 0.2f, -2.0f);
+
+					//top
+					//
+
+					glVertex3f(2.0f, 0.2f, 2.0f);
+					glVertex3f(-4.0f, 0.2f, 2.0f);
+					glVertex3f(-4.0f, 0.2f, -2.0f);
+					glVertex3f(2.0f, 0.2f, -2.0f);
+
+					//bottom
+					;
+
+					glVertex3f(2.0f, -0.2f, 2.0f);
+					glVertex3f(-4.0f, -0.2f, 2.0f);
+					glVertex3f(-4.0f, -0.2f, -2.0f);
+					glVertex3f(2.0f, -0.2f, -2.0f);
+
+					//table front leg
+					//front
+					//
+					glColor3f(.8f, .6f, 0.0f);
+					glVertex3f(1.8f, -0.2f, 1.6f);
+					glVertex3f(1.4f, -0.2f, 1.6f);
+					glVertex3f(1.4f, -3.0f, 1.6f);
+					glVertex3f(1.8f, -3.0f, 1.6f);
+
+					//back
+					//;
+
+					glVertex3f(1.8f, -0.2f, 1.2f);
+					glVertex3f(1.4f, -0.2f, 1.2f);
+					glVertex3f(1.4f, -3.0f, 1.2f);
+					glVertex3f(1.8f, -3.0f, 1.2f);
+
+					//right
+					//
+
+					glVertex3f(1.8f, -0.2f, 1.6f);
+					glVertex3f(1.8f, -0.2f, 1.2f);
+					glVertex3f(1.8f, -3.0f, 1.2f);
+					glVertex3f(1.8f, -3.0f, 1.6f);
+
+					//left
+					//;
+
+					glVertex3f(1.4f, -0.2f, 1.6f);
+					glVertex3f(1.4f, -0.2f, 1.2f);
+					glVertex3f(1.4f, -3.0f, 1.2f);
+					glVertex3f(1.4f, -3.0f, 1.6f);
+
+					//back leg back
+					//front
+					//;
+					glVertex3f(1.8f, -0.2f, -1.2f);
+					glVertex3f(1.4f, -0.2f, -1.2f);
+					glVertex3f(1.4f, -3.0f, -1.2f);
+					glVertex3f(1.8f, -3.0f, -1.2f);
+
+					//back
+					//;
+
+					glVertex3f(1.8f, -0.2f, -1.6f);
+					glVertex3f(1.4f, -0.2f, -1.6f);
+					glVertex3f(1.4f, -3.0f, -1.6f);
+					glVertex3f(1.8f, -3.0f, -1.6f);
+
+					//right
+					//
+
+					glVertex3f(1.8f, -0.2f, -1.6f);
+					glVertex3f(1.8f, -0.2f, -1.2f);
+					glVertex3f(1.8f, -3.0f, -1.2f);
+					glVertex3f(1.8f, -3.0f, -1.6f);
+
+					//left
+					//
+
+					glVertex3f(1.4f, -0.2f, -1.6f);
+					glVertex3f(1.4f, -0.2f, -1.2f);
+					glVertex3f(1.4f, -3.0f, -1.2f);
+					glVertex3f(1.4f, -3.0f, -1.6f);
+
+					//leg left front
+					//
+
+					
+					glVertex3f(-3.8f, -0.2f, 1.6f);
+					glVertex3f(-3.4f, -0.2f, 1.6f);
+					glVertex3f(-3.4f, -3.0f, 1.6f);
+					glVertex3f(-3.8f, -3.0f, 1.6f);
+
+					//back
+					//;
+
+					glVertex3f(-3.8f, -0.2f, 1.2f);
+					glVertex3f(-3.4f, -0.2f, 1.2f);
+					glVertex3f(-3.4f, -3.0f, 1.2f);
+					glVertex3f(-3.8f, -3.0f, 1.2f);
+
+					//right
+
+
+					glVertex3f(-3.8f, -0.2f, 1.6f);
+					glVertex3f(-3.8f, -0.2f, 1.2f);
+					glVertex3f(-3.8f, -3.0f, 1.2f);
+					glVertex3f(-3.8f, -3.0f, 1.6f);
+
+					//left
+					;
+
+					glVertex3f(-3.4f, -0.2f, 1.6f);
+					glVertex3f(-3.4f, -0.2f, 1.2f);
+					glVertex3f(-3.4f, -3.0f, 1.2f);
+					glVertex3f(-3.4f, -3.0f, 1.6f);
+
+					//left leg back front
+
+					//front
+					;
+					//glColor3f(1,1,1);
+					glVertex3f(-3.8f, -0.2f, -1.2f);
+					glVertex3f(-3.4f, -0.2f, -1.2f);
+					glVertex3f(-3.4f, -3.0f, -1.2f);
+					glVertex3f(-3.8f, -3.0f, -1.2f);
+
+					//back
+					;
+
+					glVertex3f(-3.8f, -0.2f, -1.6f);
+					glVertex3f(-3.4f, -0.2f, -1.6f);
+					glVertex3f(-3.4f, -3.0f, -1.6f);
+					glVertex3f(-3.8f, -3.0f, -1.6f);
+
+					//right
+
+
+					glVertex3f(-3.8f, -0.2f, -1.6f);
+					glVertex3f(-3.8f, -0.2f, -1.2f);
+					glVertex3f(-3.8f, -3.0f, -1.2f);
+					glVertex3f(-3.8f, -3.0f, -1.6f);
+
+					//left
+
+
+					glVertex3f(-3.4f, -0.2f, -1.6f);
+					glVertex3f(-3.4f, -0.2f, -1.2f);
+					glVertex3f(-3.4f, -3.0f, -1.2f);
+					glVertex3f(-3.4f, -3.0f, -1.6f);
+
+
+
+					glEnd();
+				}
+		};
+
+
+
+		#endif 
+  	  </code>
+  	</pre>
+  </p>
+
+  <h2 id="window">window.h</h2>
+  <p>
+  	This header file contains a class with the method necessary to draw a <b>window object </b>.
+	.
+  	<pre>
+  	  <code>
+ 		#ifndef WINDOW_H
+		#define WINDOW_H
+
+		#include <GL/glut.h>
+		#include <GL/freeglut_ext.h>
+
+		class Window{
+
+		    public:
+				void drawWindow1(){
+		            //Window 1
+		            glColor3f(0.6f, 0.7333f, 1.0f);
+		            glBegin(GL_QUADS);
+		            glVertex3f(-9.99f, 2.0f, 6.0f);
+		            glVertex3f(-9.99f, 5.0f, 6.0f);
+		            glVertex3f(-9.99f, 5.0f, 2.0f);
+		            glVertex3f(-9.99f, 2.0f, 2.0f);
+		            glEnd();
+
+		            glColor3f(0.149f, 0.149f, 0.149f);
+		            glLineWidth(10.0f);
+		            glBegin(GL_LINES);
+		            //left
+		            glVertex3f(-9.98f, 2.0f, 6.0f);
+		            glVertex3f(-9.98f, 5.0f, 6.0f);
+		            //top
+		            glVertex3f(-9.98f, 5.0f, 6.0f);
+		            glVertex3f(-9.98f, 5.0f, 2.0f);
+		            //right
+		            glVertex3f(-9.98f, 2.0f, 2.0f);
+		            glVertex3f(-9.98f, 5.0f, 2.0f);
+		            //bottom
+		            glVertex3f(-9.98f, 2.0f, 6.0f);
+		            glVertex3f(-9.98f, 2.0f, 2.0f);
+		            glEnd();
+
+		            //Cross
+		            glLineWidth(3.0f);
+		            glBegin(GL_LINES);
+		            glVertex3f(-9.98f, 2.0f, 4.0f);
+		            glVertex3f(-9.98f, 5.0f, 4.0f);
+
+		            glVertex3f(-9.98f, 3.5f, 6.0f);
+		            glVertex3f(-9.98f, 3.5f, 2.0f);
+		            glEnd();
+		        }
+
+		        void drawWindow2(){
+		            //Window 2
+		            glColor3f(0.6f, 0.7333f, 1.0f);
+		            glBegin(GL_QUADS);
+		            glVertex3f(-9.99f, 2.0f, -6.0f);
+		            glVertex3f(-9.99f, 5.0f, -6.0f);
+		            glVertex3f(-9.99f, 5.0f, -2.0f);
+		            glVertex3f(-9.99f, 2.0f, -2.0f);
+		            glEnd();
+
+		            glColor3f(0.149f, 0.149f, 0.149f);
+		            glLineWidth(10.0f);
+		            glBegin(GL_LINES);
+		            //left
+		            glVertex3f(-9.98f, 2.0f, -6.0f);
+		            glVertex3f(-9.98f, 5.0f, -6.0f);
+		            //top
+		            glVertex3f(-9.98f, 5.0f, -6.0f);
+		            glVertex3f(-9.98f, 5.0f, -2.0f);
+		            //right
+		            glVertex3f(-9.98f, 2.0f, -2.0f);
+		            glVertex3f(-9.98f, 5.0f, -2.0f);
+		            //bottom
+		            glVertex3f(-9.98f, 2.0f, -6.0f);
+		            glVertex3f(-9.98f, 2.0f, -2.0f);
+		            glEnd();
+
+		            //Cross
+		            glLineWidth(3.0f);
+		            glBegin(GL_LINES);
+		            glVertex3f(-9.98f, 2.0f, -4.0f);
+		            glVertex3f(-9.98f, 5.0f, -4.0f);
+
+		            glVertex3f(-9.98f, 3.5f, -6.0f);
+		            glVertex3f(-9.98f, 3.5f, -2.0f);
+		            glEnd();
+		        }
+
+		        void drawWindowSill(){
+		            glColor3f(0.149f, 0.149f, 0.149f);
+		            glBegin(GL_QUADS);
+		            glVertex3f(-9.99f, 2.0f, -6.0f);
+		            glVertex3f(-9.99f, 2.0f, -2.0f);
+		            glVertex3f(-9.5f, 2.0f, -2.0f);
+		            glVertex3f(-9.5f, 2.0f, -6.0f);
+
+		            glColor3f(0.2f, 0.2f, 0.2f);
+		            glVertex3f(-9.5f, 2.0f, -6.0f);
+		            glVertex3f(-9.5f, 2.0f, -2.0f);
+		            glVertex3f(-9.5f, 1.8f, -2.0f);
+		            glVertex3f(-9.5f, 1.8f, -6.0f);
+
+		            glColor3f(0.24f, 0.24f, 0.24f);
+		            glVertex3f(-9.99f, 2.0f, -6.0f);
+		            glVertex3f(-9.5f, 2.0f, -6.0f);
+		            glVertex3f(-9.5f, 1.8f, -6.0f);
+		            glVertex3f(-9.99f, 1.8f, -6.0f);
+
+		            glVertex3f(-9.99f, 2.0f, -2.0f);
+		            glVertex3f(-9.5f, 2.0f, -2.0f);
+		            glVertex3f(-9.5f, 1.8f, -2.0f);
+		            glVertex3f(-9.99f, 1.8f, -2.0f);
+
+		            glEnd();
+		        }
+
+		};
+
+		#endif
+ 
+  	  </code>
+  	</pre>
+  </p>
+
+  <h1 id="mainScene">Main Scene</h1>
+  <h2 id="Scene Desciption">Class room scene description</h2>
+	<p>
+		Class room scene is made up entirely from <b> GLUT lib </b> for openGL API<br>
+		<b>classroom.cpp</b> creates the whole scene. It makes object of the classes(which are stored in header files) and translate , rotate and scale appropiately, so that it looks good.
+		<pre>
+            <code>
+                #include <iostream>
+                #include <math.h>
+                #include <string.h>
+
+                #include <GL/glut.h>
+                #include <GL/freeglut_ext.h>
+                #include "chair.h"
+                #include "table.h"
+                #include "cupboard.h"
+                #include "window.h"
+                #include "snowman.h"
+                #include "fan.h"
+                #include "shelf.h"
+
+                #define WINDOW_WIDTH 1000
+                #define WINDOW_HEIGHT 1000
+
+                #define M_PI 3.1454
+
+                using namespace std;
+
+                // angle of rotation for the camera direction
+                float angle = 0.0, yAngle = 0.0;
+                // actual vector representing the camera's direction
+                float lx = 0.0f, ly = 0.0f, lz = -1.0f;
+                // XZ position of the camera
+                float x = 0.0f, z = 5.0f;
+
+                //for mouse movements
+                float halfWidth = (float)(WINDOW_WIDTH/2.0);
+                float halfHeight = (float)(WINDOW_HEIGHT/2.0);
+                float mouseX = 0.0f, mouseY = 0.0f;
+
+                //Fan
+                Fan f;
+
+                void interactWithSnowman(){
+                    
+                    char str1[] = "Hello! You seem to be the only student in class today.";
+                    int l1 = strlen(str1); // see how many characters are in text string.
+                    glPushMatrix();
+
+                    glColor3f(0.0f, 0.0f, 0.0f);
+
+                    glRasterPos3f(-9.6f, 2.7f, -2.8); // location to start printing text
+                    for( int i=0; i < l1; i++) // loop until i is greater then l
+                    {
+                        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str1[i]); // Print a character on the screen
+                    }
+                    glPopMatrix();
+                }
+
+                void renderScene(void) {
+
+                    // Clear Color and Depth Buffers
+
+                    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+                    // Reset transformations
+                    glLoadIdentity();
+                    // Set the camera
+                    gluLookAt(x, 2.5f, z,
+                        x + lx, 2.5f + ly, z + lz,
+                        0.0f, 2.5f, 0.0f);
+
+                    // Draw floor
+                    glColor3f(0.7f, 0.7f, 0.7f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-10.0f, 0.0f, -10.0f);
+                    glVertex3f(-10.0f, 0.0f, 10.0f);
+                    glVertex3f(10.0f, 0.0f, 10.0f);
+                    glVertex3f(10.0f, 0.0f, -10.0f);
+                    glEnd();
+
+                    //wall
+                    glColor3f(0.9294f, 0.9216f, 0.8353f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-10.0f, 0.0f, -10.0f);
+                    glVertex3f(-10.0f, 7.0f, -10.0f);
+                    glVertex3f(10.0f, 7.0f, -10.0f);
+                    glVertex3f(10.0f, 0.0f, -10.0f);
+                    glEnd();
+
+                    //wall
+                    glColor3f(1.0f, 0.851f, 0.702f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-10.0f, 0.0f, -10.0f);
+                    glVertex3f(-10.0f, 7.0f, -10.0f);
+                    glVertex3f(-10.0f, 7.0f, 10.0f);
+                    glVertex3f(-10.0f, 0.0f, 10.0f);
+                    glEnd();
+
+                    //wall with door
+                    glColor3f(1.0f, 0.851f, 0.702f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-10.0f, 0.0f, 10.0f);
+                    glVertex3f(-10.0f, 7.0f, 10.0f);
+                    glVertex3f(-6.0f, 7.0f, 10.0f);
+                    glVertex3f(-6.0f, 0.0f, 10.0f);
+                    glEnd();
+
+                    glColor3f(1.0f, 0.851f, 0.702f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-3.0f, 0.0f, 10.0f);
+                    glVertex3f(-3.0f, 7.0f, 10.0f);
+                    glVertex3f(10.0f, 7.0f, 10.0f);
+                    glVertex3f(10.0f, 0.0f, 10.0f);
+                    glEnd();
+
+                    glColor3f(1.0f, 0.851f, 0.702f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-6.0f, 7.0f, 10.0f);
+                    glVertex3f(-6.0f, 5.0f, 10.0f);
+                    glVertex3f(-3.0f, 5.0f, 10.0f);
+                    glVertex3f(-3.0f, 7.0f, 10.0f);
+                    glEnd();
+
+                    glColor3f(0.4f, 0.2f, 0.0f);
+                    glLineWidth(30.0f);
+                    glBegin(GL_LINES);
+                    glVertex3f(-6.0f, 5.0f, 10.01f);
+                    glVertex3f(-3.0f, 5.0f, 10.01f);
+                    glEnd();
+
+                    glBegin(GL_LINES);
+                    glVertex3f(-6.0f, 5.0f, 10.01f);
+                    glVertex3f(-6.0f, 0.0f, 10.01f);
+                    glEnd();
+
+                    glBegin(GL_LINES);
+                    glVertex3f(-3.0f, 0.0f, 10.01f);
+                    glVertex3f(-3.0f, 5.0f, 10.01f);
+                    glEnd();
+
+
+                    //wall
+                    glColor3f(1.0f, 0.851f, 0.702f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(10.0f, 0.0f, -10.0f);
+                    glVertex3f(10.0f, 7.0f, -10.0f);
+                    glVertex3f(10.0f, 7.0f, 10.0f);
+                    glVertex3f(10.0f, 0.0f, 10.0f);
+                    glEnd();
+
+                    //ceiling
+                    glColor3f(0.95f, 0.95f, 0.95f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-10.0f, 7.0f, -10.0f);
+                    glVertex3f(10.0f, 7.0f, -10.0f);
+                    glVertex3f(10.0f, 7.0f, 10.0f);
+                    glVertex3f(-10.0f, 7.0f, 10.0f);
+                    glEnd();
+
+                    // Draw prof's chair
+                    Chair profChair;
+                    glPushMatrix();
+                    glTranslatef( 6.0f, 1.0f, -9.0f);
+                    glScalef(0.32f, 0.32f, 0.32f);
+                    glRotatef(-30.0, 0.0, 1.0, 0.0);
+                    profChair.drawChair();
+                    glPopMatrix();
+
+                    // Draw prof's table
+                    Table profTable;
+                    glPushMatrix();
+                    glTranslatef( 6.0f, 1.4f, -7.6f);
+                    glScalef(0.5f, 0.5f, 0.5f);
+                    glRotatef(-30.0, 0.0, 1.0, 0.0);
+                    profTable.drawTable();
+                    glPopMatrix();
+
+                    // Draw student chairs
+                    Chair studentChair[4][4];
+                    for (int i = -3; i <= 3; i+=2){
+                        for (int j = -3; j <= 3; j+=2) {
+                            glPushMatrix();
+                            glTranslatef(i*2.0, 0.8f, j * 2.0 + 2.2f);
+                            glScalef(0.25f, 0.25f, 0.25f);
+                            glRotatef(180.0, 0.0, 1.0, 0.0);
+                            studentChair[i][j].drawChair();
+                            glPopMatrix();
+                        }
+                    }
+
+                    // Draw student tables
+                    Table studentTable[4][4];
+                    for (int i = -3; i <= 3; i+=2){
+                        for (int j = -3; j <= 3; j+=2) {
+                            glPushMatrix();
+                            glTranslatef(i*2.0 + 0.3f, 1.2f, j * 2.0 + 1.2f);
+                            glScalef(0.4f, 0.4f, 0.4f);
+                            // glRotatef(180.0, 0.0, 1.0, 0.0);
+                            studentTable[i][j].drawTable();
+                            glPopMatrix();
+                        }
+                    }
+
+                    // Draw cupboard
+                    Cupboard cupboard;
+                    glPushMatrix();
+                    glTranslatef( 8.49f, 0.0f, -3.5f);
+                    glRotatef(-90.0, 0.0, 1.0, 0.0);
+                    cupboard.drawCupboard();
+                    glPopMatrix();
+
+                    // Draw blackboard
+                    glColor3f(0.4f, 0.2f, 0.0f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-6.0f, 2.0f, -9.99f);
+                    glVertex3f(-6.0f, 5.5f, -9.99f);
+                    glVertex3f(6.0f, 5.5f, -9.99f);
+                    glVertex3f(6.0f, 2.0f, -9.99f);
+                    glEnd();
+
+                    glColor3f(0.149f, 0.149f, 0.149f);
+                    glBegin(GL_QUADS);
+                    glVertex3f(-5.8f, 2.2f, -9.98f);
+                    glVertex3f(-5.8f, 5.3f, -9.98f);
+                    glVertex3f(5.8f, 5.3f, -9.98f);
+                    glVertex3f(5.8f, 2.2f, -9.98f);
+                    glEnd();
+
+                    //Floor pattern
+                    glColor3f(0.149f, 0.149f, 0.149f);
+                    glLineWidth(3.0f);
+                    for(int i = 0; i < 20; i += 2)
+                    {
+                        glBegin(GL_LINES);
+                        glVertex3f(-10.0f + i, 0.001f, -10.01f);
+                        glVertex3f(-10.0f + i, 0.001f, 10.01f);
+                        glEnd();
+                    }
+                    for(int i = 0; i < 20; i += 2)
+                    {
+                        glBegin(GL_LINES);
+                        glVertex3f(-10.0f, 0.001f, -10.01f + i);
+                        glVertex3f(10.0f, 0.001f, -10.01f + i);
+                        glEnd();
+                    }
+
+                    //windows
+                    Window w;
+                    w.drawWindow1();
+                    w.drawWindow2();
+                    w.drawWindowSill();
+                    glPushMatrix();
+                    glTranslatef( 0.0f, 0.0f, 8.0f);
+                    w.drawWindowSill();
+                    glPopMatrix();
+
+                    //Draw Snowmen
+                    Snowman s;
+                    glPushMatrix();
+                    glTranslatef(-9.7f, 2.0f, -3.0);
+                    glScalef(0.3f, 0.3f, 0.3f);
+                    s.drawSnowMan();
+                    glPopMatrix();
+                    
+                    if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
+                        interactWithSnowman();
+                    }
+
+                    
+                    glPushMatrix();
+                    glTranslatef(0.0f, 6.0f, 0.0);
+                    glScalef(0.3f, 0.3f, 0.3f);
+                    f.drawFan();
+                    glPopMatrix();
+
+                    Shelf sh;
+                    glPushMatrix();
+                    glTranslatef(8.99f, 3.5f, 4.0);
+                    glScalef(0.25f, 0.25f, 0.25f);
+                    glRotatef(-90, 0.0f, 1.0f, 0.0f);
+                    sh.drawShelf();
+                    glPopMatrix();
+                    
+                    if(abs(mouseX) > 0.3){
+                        angle -= (0.004f * mouseX);
+                        lx = sin(angle);
+                        lz = -cos(angle);
+                    }
+                    if(abs(mouseY) > 0.3){
+                        if(abs(yAngle) < (M_PI/2)){
+                            yAngle += (0.002f * mouseY);
+                        }
+                        ly = sin(yAngle);
+                    }
+
+                    glutSwapBuffers();
+                }
+
+                void processSpecialKeys(int key, int xx, int yy) {
+
+                    float fraction = 0.1f;
+
+                    switch (key) {
+                    case GLUT_KEY_LEFT:
+                        x += sin(angle - M_PI/2.0) * fraction;
+                        z += -cos(angle - M_PI/2.0) * fraction;
+                        break;
+                    case GLUT_KEY_RIGHT:
+                        x += sin(M_PI/2.0 + angle) * fraction;
+                        z += -cos(M_PI/2.0 + angle) * fraction;
+                        break;
+                    case GLUT_KEY_UP:
+                        x += lx * fraction;
+                        z += lz * fraction;
+                        break;
+                    case GLUT_KEY_DOWN:
+                        x -= lx * fraction;
+                        z -= lz * fraction;
+                        break;
+                    }
+                }
+
+                void processNormalKeys(unsigned char key, int xx, int yy) {
+                    float fraction = 0.1f;
+                    if(key == 'w'){
+                        x += lx * fraction;
+                        z += lz * fraction;
+                    } else if(key == 'a'){
+                        x += sin(angle - M_PI/2.0) * fraction;
+                        z += -cos(angle - M_PI/2.0) * fraction;
+                    } else if(key == 's'){
+                        x -= lx * fraction;
+                        z -= lz * fraction;
+                    } else if(key == 'd'){
+                        x += sin(M_PI/2.0 + angle) * fraction;
+                        z += -cos(M_PI/2.0 + angle) * fraction;
+                    }
+                    if (key == 27)
+                        exit(0);
+                }
+
+                void processMouseMovement(int xx, int yy){
+
+                    mouseX = (float)(halfWidth - xx)/halfWidth;
+                    mouseY = (float)(halfHeight - yy)/halfHeight;
+                    angle -= (0.005f * mouseX);
+                    lx = sin(angle);
+                    lz = -cos(angle);
+
+                    if(abs(yAngle) < (M_PI/2)){
+                        yAngle += (0.005f * mouseY);
+                    }
+                    ly = sin(yAngle);
+
+                }
+
+                void changeSize(int w, int h) {
+
+                    // Prevent a divide by zero, when window is too short
+                    // (you cant make a window of zero width).
+                    if (h == 0)
+                        h = 1;
+                    float ratio = w * 1.0 / h;
+
+                    // Use the Projection Matrix
+                    glMatrixMode(GL_PROJECTION);
+
+                    // Reset Matrix
+                    glLoadIdentity();
+
+                    // Set the viewport to be the entire window
+                    glViewport(0, 0, w, h);
+
+                    // Set the correct perspective.
+                    gluPerspective(45.0f, ratio, 0.1f, 100.0f);
+
+                    // Get Back to the Modelview
+                    glMatrixMode(GL_MODELVIEW);
+                }
+
+                void animate () {
+
+                    f.rotateFan();
+
+                    /* refresh screen */
+                    glutPostRedisplay();
+                }
+
+                int main(int argc, char **argv) {
+
+                    // init GLUT and create window
+                    glutInit(&argc, argv);
+                    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+                    glutInitWindowPosition(0, 0);
+                    glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+                    glutCreateWindow("Classroom");
+
+                    // register callbacks
+                    glutDisplayFunc(renderScene);
+                    glutReshapeFunc(changeSize);
+                    glutIdleFunc(animate);
+                    glutKeyboardFunc(processNormalKeys);
+                    glutSpecialFunc(processSpecialKeys);
+                    glutPassiveMotionFunc(processMouseMovement);
+
+                    // OpenGL init
+                    glEnable(GL_DEPTH_TEST);
+
+                    // enter GLUT event processing cycle
+                    glutMainLoop();
+
+                    return 1;
+                }
+            </code>
+        </pre>
 	</p>
-  <h2 id="Lsystems">Using L-Systems</h2>
+
+
+
+
+
+  <!-- <h2 id="classroom">Using L-Systems</h2>
   <p>
 	  Another way of creating fractals is using L-Systems.<br>
 	  Each L-System consists of an axiom, constants, variables and production rules.<br>
@@ -244,11 +1739,11 @@
 		  </code>
 	  </pre>
   </p>
-
-	<p>
+ -->
+	<!-- <p>
 		The main function contains the code required to create a Window, set coordinate system
 		and render graphics using the methods from glfw3 and graphics library.
-	</p>
+	</p> -->
 </div>
 
 </body>
