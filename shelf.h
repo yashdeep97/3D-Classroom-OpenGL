@@ -35,45 +35,6 @@ class Shelf{
 
 			// house
 			glPushMatrix();
-			glutSolidCube(2);                 // building
-
-			glTranslatef(0, 1, 0);
-			glPushMatrix();                   // roof
-			glRotatef(-90, 1, 0, 0);
-			glutSolidCone(1.5, 1, 16, 8);
-			glPopMatrix();
-
-			glTranslatef(.75, .5, -.75);
-			glPushMatrix();                   // chimney
-			glScalef(1, 3, 1);
-			glutSolidCube(.25);
-			glPopMatrix();
-			glPopMatrix();
-
-			glTranslatef(0, -.65, 2);
-
-			// car
-			glColor3f(1.0f, 0.0f, 00.0f);
-			glPushMatrix();
-			glPushMatrix();                   // body
-			glScalef(2, .5, 1);
-			glutSolidCube(.5);
-			glPopMatrix();
-			glTranslatef(0, 0, .25);
-			glPushMatrix();
-			glTranslatef(-.4, -.2, 0);
-			glutSolidTorus(.05, .1, 8, 8);       // wheel
-			glTranslatef(.8, 0, 0);
-			glutSolidTorus(.05, .1, 8, 8);       // wheel
-			glPopMatrix();
-			glTranslatef(0, 0, -.5);
-			glPushMatrix();
-			glTranslatef(-.4, -.2, 0);
-			glutSolidTorus(.05, .1, 8, 8);       // wheel
-			glTranslatef(.8, 0, 0);
-			glutSolidTorus(.05, .1, 8, 8);       // wheel
-			glPopMatrix();
-			glPopMatrix();
 
 			glPopMatrix();
 		}
@@ -86,7 +47,7 @@ class Shelf{
 			glBegin(GL_QUADS);
 
 
-			glColor3f(0, 0, 1);
+			glColor3f(1, 0.7647, 0.302);
 			glVertex3f(-4.0f, 0.0f, -4.0f);
 			glVertex3f(0.0f, 0.0f, -4.0f);
 
@@ -99,7 +60,7 @@ class Shelf{
 			//glVertex3f(-1.8f, 3.5f, -0.6f);
 
 			//chair upper side
-			glColor3f(0, 1, 0);
+			glColor3f(0.302, 0.2, 0);
 			glVertex3f(-4.0f, 0.0f, -4.0f);
 			glVertex3f(-4.0f, 0.0f, -0.0f);
 			glVertex3f(-4.0f, 4.0f, -0.0f);
@@ -111,7 +72,7 @@ class Shelf{
 			glVertex3f(0.0f, 4.0f, -4.0f);
 
 			//chiar upper top 
-			glColor3f(0, 1, 0);
+			glColor3f(0.302, 0.2, 0);
 			glVertex3f(-4.0f, 4.0f, -4.00f);
 			glVertex3f(-4.0f, 4.0f, -0.0f);
 			glVertex3f(0.0f, 4.0f, -0.0f);

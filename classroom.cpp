@@ -362,6 +362,8 @@ void changeSize(int w, int h) {
 
 	// Set the viewport to be the entire window
 	glViewport(0, 0, w, h);
+	halfWidth = (float)(w/2.0);
+	halfHeight = (float)(h/2.0);
 
 	// Set the correct perspective.
 	gluPerspective(45.0f, ratio, 0.1f, 100.0f);
