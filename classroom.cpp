@@ -15,8 +15,6 @@
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
 
-#define M_PI 3.1454
-
 using namespace std;
 
 // angle of rotation for the camera direction
@@ -24,7 +22,7 @@ float angle = 0.0, yAngle = 0.0;
 // actual vector representing the camera's direction
 float lx = 0.0f, ly = 0.0f, lz = -1.0f;
 // XZ position of the camera
-float x = 0.0f, z = 5.0f;
+float x = -5.0f, z = 18.0f;
 
 //for mouse movements
 float halfWidth = (float)(WINDOW_WIDTH/2.0);

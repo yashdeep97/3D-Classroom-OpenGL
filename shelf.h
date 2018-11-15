@@ -35,7 +35,7 @@ class Shelf{
 
 			// house
 			glPushMatrix();
-
+			
 			glPopMatrix();
 		}
 
@@ -50,9 +50,10 @@ class Shelf{
 			glColor3f(1, 0.7647, 0.302);
 			glVertex3f(-4.0f, 0.0f, -4.0f);
 			glVertex3f(0.0f, 0.0f, -4.0f);
-
 			glVertex3f(0.0f, 4.0f, -4.0f);
 			glVertex3f(-4.0f, 4.0f, -4.0f);
+
+			
 
 			//glVertex3f(-1.8f, 1.2f, -0.6f);
 			//glVertex3f(1.8f, 1.2f, -0.6f);
@@ -82,6 +83,13 @@ class Shelf{
 			glVertex3f(-4.0f, 0.0f, -0.0f);
 			glVertex3f(0.0f, 0.0f, -0.0f);
 			glVertex3f(0.0f, 0.0f, -4.0f);
+
+			glVertex3f(-4.0f, 0.0f, 0.0f);
+			glVertex3f(0.0f, 0.0f, 0.0f);
+			glVertex3f(0.0f, 0.2f, 0.0f);
+			glVertex3f(-4.0f, 0.2f, 0.0f);
+
+			
 
 			glEnd();
 
