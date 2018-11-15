@@ -17,17 +17,12 @@
 
 <div id="mySidenav" class="sidenav">
 <!-- <h1>Contents</h1> -->
-<a href="#FractalImages">Fractal Images</a>
-  <a href="#Headerfiles">Header Files</a>
-  <ul>
-<li><a href="#basics">basics.h</a></li>
-<li><a href="#turtle">turtle.h</a></li>
-</ul>
-  <a href="#Fractals">Fractals</a>
-  <ul>
-<li><a href="#Recursion">Recursion</a></li>
-<li><a href="#Lsystems">L-Systems</a></li>
-</ul>
+
+<a href="#Video">Video</a>
+<a href="#Images">Images</a>
+<a href="#Headerfiles">Header Files</a>
+<a href="#mainScene">Main Scene</a>
+
   <div class="pos-bottom doneBy">
     <h3 class="doneBy">Done By:</h2>
     <ul>
@@ -39,229 +34,70 @@
 </div>
 
 <div id="main">
-  <h1 id="FractalImages">Fractal Images:</h1>
-  <a href="images/basics.png" data-fancybox="gallery" data-caption="basics">
-  <img class="thumbnail" src="images/basics.png" alt="" />
-  </a>
-  <a href="images/Board.png" data-fancybox="gallery" data-caption="Board">
-  <img class="thumbnail" src="images/Board.png" alt="" />
-  </a>
-  <a href="images/CircleRecursion.png" data-fancybox="gallery" data-caption="CircleRecursion">
-  <img class="thumbnail" src="images/CircleRecursion.png" alt="" />
-  </a>
-  <a href="images/Crystal.png" data-fancybox="gallery" data-caption="Crystal">
-  <img class="thumbnail" src="images/Crystal.png" alt="" />
-  </a>
-  <a href="images/DragonCurve.png" data-fancybox="gallery" data-caption="DragonCurve">
-  <img class="thumbnail" src="images/DragonCurve.png" alt="" />
-  </a>
-  <a href="images/HexFractal.png" data-fancybox="gallery" data-caption="HexFractal">
-  <img class="thumbnail" src="images/HexFractal.png" alt="" />
-  </a>
-  <a href="images/KochSnowflake.png" data-fancybox="gallery" data-caption="KochSnowflake">
-  <img class="thumbnail" src="images/KochSnowflake.png" alt="" />
-  </a>
-  <a href="images/Pentaplexity.png" data-fancybox="gallery" data-caption="Pentaplexity">
-  <img class="thumbnail" src="images/Pentaplexity.png" alt="" />
-  </a>
-  <a href="images/Rings.png" data-fancybox="gallery" data-caption="Rings">
-  <img class="thumbnail" src="images/Rings.png" alt="" />
-  </a>
-  <a href="images/Shrub.png" data-fancybox="gallery" data-caption="Shrub">
-  <img class="thumbnail" src="images/Shrub.png" alt="" />
-  </a>
-  <a href="images/SierpinskiTriangle.png" data-fancybox="gallery" data-caption="SierpinskiTriangle">
-  <img class="thumbnail" src="images/SierpinskiTriangle.png" alt="" />
-  </a>
-  <a href="images/Tree.png" data-fancybox="gallery" data-caption="Tree">
-  <img class="thumbnail" src="images/Tree.png" alt="" />
-  </a>
 
+    <h1 id="Video">Video</h1>
+    <iframe width="1000" height="530" src="https://www.youtube.com/embed/SV-CJTGWdUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+  <h1 id="Images">Images</h1>
+  <a href="images/fromOutside.png" data-fancybox="gallery" data-caption="View of the room from outside">
+  <img class="thumbnail" src="images/fromOutside.png" alt="" />
+  </a>
+  <a href="images/TableandChair.png" data-fancybox="gallery" data-caption="Tables and chairs">
+  <img class="thumbnail" src="images/TableandChair.png" alt="" />
+  </a>
+  <a href="images/shelf.png" data-fancybox="gallery" data-caption="Shelf">
+  <img class="thumbnail" src="images/shelf.png" alt="" />
+  </a>
+  <a href="images/windows.png" data-fancybox="gallery" data-caption="Windows">
+  <img class="thumbnail" src="images/windows.png" alt="" />
+  </a>
+  <a href="images/fan.png" data-fancybox="gallery" data-caption="A rotating ceiling fan">
+  <img class="thumbnail" src="images/fan.png" alt="" />
+  </a>
+  <a href="images/blackboard.png" data-fancybox="gallery" data-caption="Blackboard in the classroom">
+  <img class="thumbnail" src="images/blackboard.png" alt="" />
+  </a>
+  <a href="images/cupboard.png" data-fancybox="gallery" data-caption="Cupboard">
+  <img class="thumbnail" src="images/cupboard.png" alt="" />
+  </a>
+  <a href="images/interactiveSnowman.png" data-fancybox="gallery" data-caption="Interacting with the random snowman">
+  <img class="thumbnail" src="images/interactiveSnowman.png" alt="" />
+  </a>
+  
   <h1 id="Headerfiles">Header Files</h1>
-
-  <h2 id="chair">chair.h</h2>
-	<p>
-		This header file contains a class with the method necessary to draw a <b>chair object </b>.
-		<pre>
-		  <code>
-			#ifndef CHAIR_H
-			#define CHAIR_H
-
-			#include <GL/glut.h>
-			#include <GL/freeglut_ext.h>
-
-			class Chair{
-
-			    public:
-					void drawChair() {
-				}
-
-		};
-
-		#endif
-  	  </code>
-  	</pre>
+  <p> The following header files are used to define the various objects inside the classroom. Various OpenGL
+      functions like <i>glBegin(GL_QUADS), glVertex3f(), glTranslatef(), glScalef(), glRotatef(), glColor3f()</i>
+      have been used to create the objects. 
   </p>
-
-  <h2 id="fan">fan.h</h2>
-  <p>
-  	This header file contains a class with the method necessary to draw a <b>Fan object </b>.
-	.
-  	<pre>
-  	  <code>
- 		#ifndef FAN_H
-		#define FAN_H
-
-		#include <GL/glut.h>
-		#include <GL/freeglut_ext.h>
-		#include <math.h>
-
-		#define DEF_D 5
-
-		class Fan {
-			private:
-				float rotationAngle = 0.0f;
-
-			public:
-				
-				void drawFan()
-				{
-				
-  	  </code>
-  	</pre>
-  </p>
-
-  <h2 id="snowmen">snowmen.h</h2>
-  <p>
-  	This header file contains a class with the method necessary to draw a <b>snowmen object </b>.
-	.
-  	<pre>
-  	  <code>
- 		#ifndef SNOWMAN_H
-		#define SNOWMAN_H
-
-		#include <GL/glut.h>
-		#include <GL/freeglut_ext.h>
-
-		class Snowman{
-
-		    public:
-		    
-		        void drawSnowMan() {
-
-		     	}
-		     };
-
-		#endif
-  	  </code>
-  	</pre>
-  </p>
-
-  <h2 id="shelf">shelf.h</h2>
-  <p>
-  	This header file contains a class with the method necessary to draw a <b>shelf object </b>.
-	.
-  	<pre>
-  	  <code>
- 		#ifndef SHELF_H
-		#define SHELF_H
-
-		#include <GL/glut.h>
-		#include <GL/freeglut_ext.h>
-
-		class Shelf{
-
-		    public:
-				void drawSnowMan() {
-
-			}
-
-		#endif
-
-  	  </code>
-  	</pre>
-  </p>
-
-  <h2 id="table">table.h</h2>
-  <p>
-  	This header file contains a class with the method necessary to draw a <b>table object </b>.
-	.
-  	<pre>
-  	  <code>
- 		#ifndef TABLE_H
-		#define TABLE_H
-
-
-		class Table{
-
-		    public:
-				void drawTable() {
-
-					
-				}
-		};
-
-
-
-		#endif 
-  	  </code>
-  	</pre>
-  </p>
-
-  <h2 id="window">window.h</h2>
-  <p>
-  	This header file contains a class with the method necessary to draw a <b>window object </b>.
-	.
-  	<pre>
-  	  <code>
- 		#ifndef WINDOW_H
-		#define WINDOW_H
-
-		#include <GL/glut.h>
-		#include <GL/freeglut_ext.h>
-
-		class Window{
-
-		    public:
-				void drawWindow1(){
-		            
-		        }
-
-		};
-
-		#endif
- 
-  	  </code>
-  	</pre>
-  </p>
+  <dl>
+      <dt><h3>chair.h</h3></dt>
+      <dd>This header file contains a class with the method necessary to draw a chair object</dd>
+      <dt><h3>cupboard.h</h3></dt>
+      <dd>This header file contains a class with the method necessary to draw a cupboard</dd>
+      <dt><h3>fan.h</h3></dt>
+      <dd>This header file contains a class with the method necessary to draw a fan and animate it by changing the angle of rotation.</dd>
+      <dt><h3>shelf.h</h3></dt>
+      <dd>This header file contains a class with the method necessary to draw a shelf and the items placed inside it.</dd>
+      <dt><h3>snowman.h</h3></dt>
+      <dd>This header file contains a class with the method necessary to draw a snowman.</dd>
+      <dt><h3>table.h</h3></dt>
+      <dd>Contains a class with methods used to draw a table.</dd>
+      <dt><h3>window.h</h3></dt>
+      <dd>Used to draw window and window sill.</dd>
+  </dl>
 
   <h1 id="mainScene">Main Scene</h1>
   <h2 id="Scene Desciption">Class room scene description</h2>
 	<p>
-		Class room scene is made up entirely from <b> GLUT lib </b> for openGL API<br>
-		<b>classroom.cpp</b> creates the whole scene. It makes object of the classes(which are stored in header files) and translate , rotate and scale appropiately, so that it looks good.
+		Along with OpenGL, the library GLUT was used to create the window and set the projection and configure the camera.
+        GLUT handles the 3D pipelining which consists of normalizing, clipping, projection( perspective ) and transformation 
+        to viewport coordinates.<br><br>
+		<b>classroom.cpp</b> creates the 3D scene. It makes use of the different header files to add the objects to the 3D scene by applying
+        translation, rotation and scaling. <br>
+        <br>It also defines the callback functions to handle the keyboard and mouse events. These events trigger the movement and 
+        rotation of the camera. Thus, providing a first-person experience of the 3D classroom.
 		<pre>
             <code>
-                #include <iostream>
-                #include <math.h>
-                #include <string.h>
-
-                #include <GL/glut.h>
-                #include <GL/freeglut_ext.h>
-                #include "chair.h"
-                #include "table.h"
-                #include "cupboard.h"
-                #include "window.h"
-                #include "snowman.h"
-                #include "fan.h"
-                #include "shelf.h"
-
-                #define WINDOW_WIDTH 1000
-                #define WINDOW_HEIGHT 1000
-
-                #define M_PI 3.1454
-
-                using namespace std;
 
                 // angle of rotation for the camera direction
                 float angle = 0.0, yAngle = 0.0;
@@ -275,354 +111,44 @@
                 float halfHeight = (float)(WINDOW_HEIGHT/2.0);
                 float mouseX = 0.0f, mouseY = 0.0f;
 
-                //Fan
+                //Fan object
                 Fan f;
 
-                void interactWithSnowman(){
-                    
-                    char str1[] = "Hello! You seem to be the only student in class today.";
-                    int l1 = strlen(str1); // see how many characters are in text string.
-                    glPushMatrix();
+                //makes a sentence appear above thesnowman when the camera approaches it.
+                void interactWithSnowman(){}
 
-                    glColor3f(0.0f, 0.0f, 0.0f);
+                // Callback function that is called after every frame refresh. Creates all the objects in the scene.
+                void renderScene(void) {}
 
-                    glRasterPos3f(-9.6f, 2.7f, -2.8); // location to start printing text
-                    for( int i=0; i < l1; i++) // loop until i is greater then l
-                    {
-                        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str1[i]); // Print a character on the screen
-                    }
-                    glPopMatrix();
-                }
+                // Handles the events triggered when one of the arrow keys are pressed.
+                // @param key : key pressed
+                // @param xx : x coordinate of mouse position
+                // @param yy : y coordinate of mouse position
+                void processSpecialKeys(int key, int xx, int yy) {}
 
-                void renderScene(void) {
+                // Handles the events triggered when any key on the keyboard is pressed.
+                Specifically, handles w,a,s,d and Esc.
+                // moves the camera frward, backward and sideways.
+                // @param key : key pressed
+                // @param xx : x coordinate of mouse position
+                // @param yy : y coordinate of mouse position
+                void processNormalKeys(unsigned char key, int xx, int yy) {}
 
-                    // Clear Color and Depth Buffers
-
-                    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-                    // Reset transformations
-                    glLoadIdentity();
-                    // Set the camera
-                    gluLookAt(x, 2.5f, z,
-                        x + lx, 2.5f + ly, z + lz,
-                        0.0f, 2.5f, 0.0f);
-
-                    // Draw floor
-                    glColor3f(0.7f, 0.7f, 0.7f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-10.0f, 0.0f, -10.0f);
-                    glVertex3f(-10.0f, 0.0f, 10.0f);
-                    glVertex3f(10.0f, 0.0f, 10.0f);
-                    glVertex3f(10.0f, 0.0f, -10.0f);
-                    glEnd();
-
-                    //wall
-                    glColor3f(0.9294f, 0.9216f, 0.8353f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-10.0f, 0.0f, -10.0f);
-                    glVertex3f(-10.0f, 7.0f, -10.0f);
-                    glVertex3f(10.0f, 7.0f, -10.0f);
-                    glVertex3f(10.0f, 0.0f, -10.0f);
-                    glEnd();
-
-                    //wall
-                    glColor3f(1.0f, 0.851f, 0.702f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-10.0f, 0.0f, -10.0f);
-                    glVertex3f(-10.0f, 7.0f, -10.0f);
-                    glVertex3f(-10.0f, 7.0f, 10.0f);
-                    glVertex3f(-10.0f, 0.0f, 10.0f);
-                    glEnd();
-
-                    //wall with door
-                    glColor3f(1.0f, 0.851f, 0.702f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-10.0f, 0.0f, 10.0f);
-                    glVertex3f(-10.0f, 7.0f, 10.0f);
-                    glVertex3f(-6.0f, 7.0f, 10.0f);
-                    glVertex3f(-6.0f, 0.0f, 10.0f);
-                    glEnd();
-
-                    glColor3f(1.0f, 0.851f, 0.702f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-3.0f, 0.0f, 10.0f);
-                    glVertex3f(-3.0f, 7.0f, 10.0f);
-                    glVertex3f(10.0f, 7.0f, 10.0f);
-                    glVertex3f(10.0f, 0.0f, 10.0f);
-                    glEnd();
-
-                    glColor3f(1.0f, 0.851f, 0.702f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-6.0f, 7.0f, 10.0f);
-                    glVertex3f(-6.0f, 5.0f, 10.0f);
-                    glVertex3f(-3.0f, 5.0f, 10.0f);
-                    glVertex3f(-3.0f, 7.0f, 10.0f);
-                    glEnd();
-
-                    glColor3f(0.4f, 0.2f, 0.0f);
-                    glLineWidth(30.0f);
-                    glBegin(GL_LINES);
-                    glVertex3f(-6.0f, 5.0f, 10.01f);
-                    glVertex3f(-3.0f, 5.0f, 10.01f);
-                    glEnd();
-
-                    glBegin(GL_LINES);
-                    glVertex3f(-6.0f, 5.0f, 10.01f);
-                    glVertex3f(-6.0f, 0.0f, 10.01f);
-                    glEnd();
-
-                    glBegin(GL_LINES);
-                    glVertex3f(-3.0f, 0.0f, 10.01f);
-                    glVertex3f(-3.0f, 5.0f, 10.01f);
-                    glEnd();
+                // Handles the events triggered when the mouse is moved in the window area. 
+                // Handles yaw and pitch of the camera.
+                // @param xx : x coordinate of mouse position
+                // @param yy : y coordinate of mouse position
+                void processMouseMovement(int xx, int yy){}
+    
+                // Adjusts the viewport sie when the window size is changed and sets the projection.
+                // @param w : new width of window
+                // @param h : new height of window
+                void changeSize(int w, int h) {}
 
 
-                    //wall
-                    glColor3f(1.0f, 0.851f, 0.702f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(10.0f, 0.0f, -10.0f);
-                    glVertex3f(10.0f, 7.0f, -10.0f);
-                    glVertex3f(10.0f, 7.0f, 10.0f);
-                    glVertex3f(10.0f, 0.0f, 10.0f);
-                    glEnd();
+                // Used to rotate the fan by increasing its angle of rotation.
+                void animate () {}
 
-                    //ceiling
-                    glColor3f(0.95f, 0.95f, 0.95f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-10.0f, 7.0f, -10.0f);
-                    glVertex3f(10.0f, 7.0f, -10.0f);
-                    glVertex3f(10.0f, 7.0f, 10.0f);
-                    glVertex3f(-10.0f, 7.0f, 10.0f);
-                    glEnd();
-
-                    // Draw prof's chair
-                    Chair profChair;
-                    glPushMatrix();
-                    glTranslatef( 6.0f, 1.0f, -9.0f);
-                    glScalef(0.32f, 0.32f, 0.32f);
-                    glRotatef(-30.0, 0.0, 1.0, 0.0);
-                    profChair.drawChair();
-                    glPopMatrix();
-
-                    // Draw prof's table
-                    Table profTable;
-                    glPushMatrix();
-                    glTranslatef( 6.0f, 1.4f, -7.6f);
-                    glScalef(0.5f, 0.5f, 0.5f);
-                    glRotatef(-30.0, 0.0, 1.0, 0.0);
-                    profTable.drawTable();
-                    glPopMatrix();
-
-                    // Draw student chairs
-                    Chair studentChair[4][4];
-                    for (int i = -3; i <= 3; i+=2){
-                        for (int j = -3; j <= 3; j+=2) {
-                            glPushMatrix();
-                            glTranslatef(i*2.0, 0.8f, j * 2.0 + 2.2f);
-                            glScalef(0.25f, 0.25f, 0.25f);
-                            glRotatef(180.0, 0.0, 1.0, 0.0);
-                            studentChair[i][j].drawChair();
-                            glPopMatrix();
-                        }
-                    }
-
-                    // Draw student tables
-                    Table studentTable[4][4];
-                    for (int i = -3; i <= 3; i+=2){
-                        for (int j = -3; j <= 3; j+=2) {
-                            glPushMatrix();
-                            glTranslatef(i*2.0 + 0.3f, 1.2f, j * 2.0 + 1.2f);
-                            glScalef(0.4f, 0.4f, 0.4f);
-                            // glRotatef(180.0, 0.0, 1.0, 0.0);
-                            studentTable[i][j].drawTable();
-                            glPopMatrix();
-                        }
-                    }
-
-                    // Draw cupboard
-                    Cupboard cupboard;
-                    glPushMatrix();
-                    glTranslatef( 8.49f, 0.0f, -3.5f);
-                    glRotatef(-90.0, 0.0, 1.0, 0.0);
-                    cupboard.drawCupboard();
-                    glPopMatrix();
-
-                    // Draw blackboard
-                    glColor3f(0.4f, 0.2f, 0.0f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-6.0f, 2.0f, -9.99f);
-                    glVertex3f(-6.0f, 5.5f, -9.99f);
-                    glVertex3f(6.0f, 5.5f, -9.99f);
-                    glVertex3f(6.0f, 2.0f, -9.99f);
-                    glEnd();
-
-                    glColor3f(0.149f, 0.149f, 0.149f);
-                    glBegin(GL_QUADS);
-                    glVertex3f(-5.8f, 2.2f, -9.98f);
-                    glVertex3f(-5.8f, 5.3f, -9.98f);
-                    glVertex3f(5.8f, 5.3f, -9.98f);
-                    glVertex3f(5.8f, 2.2f, -9.98f);
-                    glEnd();
-
-                    //Floor pattern
-                    glColor3f(0.149f, 0.149f, 0.149f);
-                    glLineWidth(3.0f);
-                    for(int i = 0; i < 20; i += 2)
-                    {
-                        glBegin(GL_LINES);
-                        glVertex3f(-10.0f + i, 0.001f, -10.01f);
-                        glVertex3f(-10.0f + i, 0.001f, 10.01f);
-                        glEnd();
-                    }
-                    for(int i = 0; i < 20; i += 2)
-                    {
-                        glBegin(GL_LINES);
-                        glVertex3f(-10.0f, 0.001f, -10.01f + i);
-                        glVertex3f(10.0f, 0.001f, -10.01f + i);
-                        glEnd();
-                    }
-
-                    //windows
-                    Window w;
-                    w.drawWindow1();
-                    w.drawWindow2();
-                    w.drawWindowSill();
-                    glPushMatrix();
-                    glTranslatef( 0.0f, 0.0f, 8.0f);
-                    w.drawWindowSill();
-                    glPopMatrix();
-
-                    //Draw Snowmen
-                    Snowman s;
-                    glPushMatrix();
-                    glTranslatef(-9.7f, 2.0f, -3.0);
-                    glScalef(0.3f, 0.3f, 0.3f);
-                    s.drawSnowMan();
-                    glPopMatrix();
-                    
-                    if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
-                        interactWithSnowman();
-                    }
-
-                    
-                    glPushMatrix();
-                    glTranslatef(0.0f, 6.0f, 0.0);
-                    glScalef(0.3f, 0.3f, 0.3f);
-                    f.drawFan();
-                    glPopMatrix();
-
-                    Shelf sh;
-                    glPushMatrix();
-                    glTranslatef(8.99f, 3.5f, 4.0);
-                    glScalef(0.25f, 0.25f, 0.25f);
-                    glRotatef(-90, 0.0f, 1.0f, 0.0f);
-                    sh.drawShelf();
-                    glPopMatrix();
-                    
-                    if(abs(mouseX) > 0.3){
-                        angle -= (0.004f * mouseX);
-                        lx = sin(angle);
-                        lz = -cos(angle);
-                    }
-                    if(abs(mouseY) > 0.3){
-                        if(abs(yAngle) < (M_PI/2)){
-                            yAngle += (0.002f * mouseY);
-                        }
-                        ly = sin(yAngle);
-                    }
-
-                    glutSwapBuffers();
-                }
-
-                void processSpecialKeys(int key, int xx, int yy) {
-
-                    float fraction = 0.1f;
-
-                    switch (key) {
-                    case GLUT_KEY_LEFT:
-                        x += sin(angle - M_PI/2.0) * fraction;
-                        z += -cos(angle - M_PI/2.0) * fraction;
-                        break;
-                    case GLUT_KEY_RIGHT:
-                        x += sin(M_PI/2.0 + angle) * fraction;
-                        z += -cos(M_PI/2.0 + angle) * fraction;
-                        break;
-                    case GLUT_KEY_UP:
-                        x += lx * fraction;
-                        z += lz * fraction;
-                        break;
-                    case GLUT_KEY_DOWN:
-                        x -= lx * fraction;
-                        z -= lz * fraction;
-                        break;
-                    }
-                }
-
-                void processNormalKeys(unsigned char key, int xx, int yy) {
-                    float fraction = 0.1f;
-                    if(key == 'w'){
-                        x += lx * fraction;
-                        z += lz * fraction;
-                    } else if(key == 'a'){
-                        x += sin(angle - M_PI/2.0) * fraction;
-                        z += -cos(angle - M_PI/2.0) * fraction;
-                    } else if(key == 's'){
-                        x -= lx * fraction;
-                        z -= lz * fraction;
-                    } else if(key == 'd'){
-                        x += sin(M_PI/2.0 + angle) * fraction;
-                        z += -cos(M_PI/2.0 + angle) * fraction;
-                    }
-                    if (key == 27)
-                        exit(0);
-                }
-
-                void processMouseMovement(int xx, int yy){
-
-                    mouseX = (float)(halfWidth - xx)/halfWidth;
-                    mouseY = (float)(halfHeight - yy)/halfHeight;
-                    angle -= (0.005f * mouseX);
-                    lx = sin(angle);
-                    lz = -cos(angle);
-
-                    if(abs(yAngle) < (M_PI/2)){
-                        yAngle += (0.005f * mouseY);
-                    }
-                    ly = sin(yAngle);
-
-                }
-
-                void changeSize(int w, int h) {
-
-                    // Prevent a divide by zero, when window is too short
-                    // (you cant make a window of zero width).
-                    if (h == 0)
-                        h = 1;
-                    float ratio = w * 1.0 / h;
-
-                    // Use the Projection Matrix
-                    glMatrixMode(GL_PROJECTION);
-
-                    // Reset Matrix
-                    glLoadIdentity();
-
-                    // Set the viewport to be the entire window
-                    glViewport(0, 0, w, h);
-
-                    // Set the correct perspective.
-                    gluPerspective(45.0f, ratio, 0.1f, 100.0f);
-
-                    // Get Back to the Modelview
-                    glMatrixMode(GL_MODELVIEW);
-                }
-
-                void animate () {
-
-                    f.rotateFan();
-
-                    /* refresh screen */
-                    glutPostRedisplay();
-                }
 
                 int main(int argc, char **argv) {
 
@@ -647,60 +173,12 @@
                     // enter GLUT event processing cycle
                     glutMainLoop();
 
-                    return 1;
+                    return 0;
                 }
             </code>
         </pre>
 	</p>
 
-
-
-
-
-  <!-- <h2 id="classroom">Using L-Systems</h2>
-  <p>
-	  Another way of creating fractals is using L-Systems.<br>
-	  Each L-System consists of an axiom, constants, variables and production rules.<br>
-	  For example, the L-System used for creating the Dragon Curve:
-	  <pre>
-			Variables: 	F,  H
-			Constants:	 +,  -,  [,  ]
-			Axiom:	 F
-			Production Rules: 	F -> F+H,	 H -> F-H
-	  </pre>
-	  <p>Where <i>F</i> and <i>H</i> tell the turtle to move forward, '+' tells it to
-	  turn right by 90<sup>0</sup> and '-' tells it to turn left by 90<sup>0</sup>.<br>
-	  We start with <i>F</i> as the initial string, and for each generation, we replace
-	  <i>F</i> and <i>H</i> according to the production rules. When we draw the path
-	  of the turtle, we get the fractal for the given generation.</p>
-	  <p>All other fractals have been created using this approach.</p>
-	  <pre>
-		<code>
-			// Function for generating the path string for the next generation using the current path string
-			// @param str : currnt path string
-			void nextGeneration(string& str){
-				int i = 0;
-				string newstr = "";
-				while(i < str.length()){
-					if(str[i] == 'F'){
-						newstr += "F+H";
-					}else if(str[i] == 'H'){
-						newstr += "F-H";
-					} else {
-						newstr += str[i];
-					}
-					i++;
-				}
-				str = newstr;
-			}
-		  </code>
-	  </pre>
-  </p>
- -->
-	<!-- <p>
-		The main function contains the code required to create a Window, set coordinate system
-		and render graphics using the methods from glfw3 and graphics library.
-	</p> -->
 </div>
 
 </body>
