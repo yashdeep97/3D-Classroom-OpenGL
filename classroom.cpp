@@ -4,13 +4,13 @@
 
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
-#include "chair.h"
-#include "table.h"
-#include "cupboard.h"
-#include "window.h"
-#include "snowman.h"
-#include "fan.h"
-#include "shelf.h"
+#include "src/chair.h"
+#include "src/table.h"
+#include "src/cupboard.h"
+#include "src/window.h"
+#include "src/snowman.h"
+#include "src/fan.h"
+#include "src/shelf.h"
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
@@ -23,6 +23,7 @@ float angle = 0.0, yAngle = 0.0;
 float lx = 0.0f, ly = 0.0f, lz = -1.0f;
 // XZ position of the camera
 float x = -5.0f, z = 18.0f;
+float roll = 0.0f;
 
 //for mouse movements
 float halfWidth = (float)(WINDOW_WIDTH/2.0);
@@ -59,7 +60,7 @@ void renderScene(void) {
 	// Set the camera
 	gluLookAt(x, 2.5f, z,
 		x + lx, 2.5f + ly, z + lz,
-		0.0f, 2.5f, 0.0f);
+		roll + 0.0f, 2.5f, 0.0f);
 
 	// Draw floor
 	glColor3f(0.7f, 0.7f, 0.7f);
@@ -326,7 +327,12 @@ void processNormalKeys(unsigned char key, int xx, int yy) {
     } else if(key == 'd'){
         x += sin(M_PI/2.0 + angle) * fraction;
 		z += -cos(M_PI/2.0 + angle) * fraction;
-    }
+    } else if (key == 'x') {
+		roll += 0.5f;
+	} else if (key == 'z') {
+		roll -= 0.5f;
+	}
+	
 	if (key == 27)
 		exit(0);
 }
