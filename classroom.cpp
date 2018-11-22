@@ -289,6 +289,10 @@ void renderScene(void) {
 	glutSwapBuffers();
 }
 
+// Handles the events triggered when one of the arrow keys are pressed.
+// @param key : key pressed
+// @param xx : x coordinate of mouse position
+// @param yy : y coordinate of mouse position
 void processSpecialKeys(int key, int xx, int yy) {
 
 	float fraction = 0.1f;
@@ -313,6 +317,13 @@ void processSpecialKeys(int key, int xx, int yy) {
 	}
 }
 
+
+// Handles the events triggered when any key on the keyboard is pressed.
+//Specifically, handles w,a,s,d and Esc.
+// moves the camera frward, backward and sideways.
+// @param key : key pressed
+// @param xx : x coordinate of mouse position
+// @param yy : y coordinate of mouse position
 void processNormalKeys(unsigned char key, int xx, int yy) {
     float fraction = 0.1f;
     if(key == 'w'){
@@ -337,6 +348,10 @@ void processNormalKeys(unsigned char key, int xx, int yy) {
 		exit(0);
 }
 
+ // Handles the events triggered when the mouse is moved in the window area. 
+// Handles yaw and pitch of the camera.
+// @param xx : x coordinate of mouse position
+// @param yy : y coordinate of mouse position
 void processMouseMovement(int xx, int yy){
 
 	mouseX = (float)(halfWidth - xx)/halfWidth;
@@ -352,6 +367,9 @@ void processMouseMovement(int xx, int yy){
 
 }
 
+ // Adjusts the viewport sie when the window size is changed and sets the projection.
+ // @param w : new width of window
+ // @param h : new height of window
 void changeSize(int w, int h) {
 
 	// Prevent a divide by zero, when window is too short
