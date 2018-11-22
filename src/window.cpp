@@ -38,7 +38,7 @@ glVertex3f(-9.98f, 3.5f, 2.0f);
 glEnd();
 }
 
-void window :: drawWindow2(){
+void Window :: drawWindow2(){
 //Window 2
 glColor3f(0.6f, 0.7333f, 1.0f);
 glBegin(GL_QUADS);
